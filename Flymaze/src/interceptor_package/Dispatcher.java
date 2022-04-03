@@ -31,7 +31,7 @@ public class Dispatcher{
         interceptorList.remove(interceptor);
     }
 
-    public void dispatchClientRequestInterceptorEatBeansLogging(AttackContext context) throws IOException {
+    public void dispatchClientRequestInterceptorAttackEnemy(AttackContext context) throws IOException {
         ArrayList<Interceptor> interceptors;
         synchronized (this)
         {
