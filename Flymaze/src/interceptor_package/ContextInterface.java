@@ -1,7 +1,7 @@
 package interceptor_package;
 
 import enemy_package.Enemy;
-import lukes_package.Player;
+import player_package.Player;
 
 public interface ContextInterface {
 	public String applyDamage();

@@ -1,7 +1,7 @@
 package interceptor_package;
 
 import enemy_package.Enemy;
-import lukes_package.Player;
+import player_package.Player;
 
 public class AttackContext implements ContextInterface{
 	private Player playerObject;
@@ -16,7 +16,7 @@ public class AttackContext implements ContextInterface{
 	
 	public String applyDamage() {
 		//The example is for use with a logger which might be handy
-		String result = "Player:" + playerObject.getName() + " attacked Enemy:" + enemyObject.getName();
+		String result = "Player:" + playerObject.getFirstName() + " attacked Enemy:" + enemyObject.getName();
 		
 		return result;
 		

@@ -36,6 +36,14 @@ public class Enemies implements Enemy
         }
         return false;
     }
+    
+    @Override
+	public String getName() {
+		for(Enemy en:enemiesList) {
+			return en.getName();
+		}
+		return "";
+	}
 
     // Setters
     @Override
@@ -62,6 +70,13 @@ public class Enemies implements Enemy
             en.setIsDead(dead);;
         }
     }
+    
+    @Override
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
     public String toString(){
         String desc = "\n ";
@@ -82,5 +97,8 @@ public class Enemies implements Enemy
         enemiesList.remove(en);
     }
 
+	
+
+	
     
 }
