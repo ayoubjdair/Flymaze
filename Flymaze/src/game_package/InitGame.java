@@ -73,4 +73,25 @@ public class InitGame {
         System.out.print(player.toString());
         return player;
     }
+
+    public String getMapType(){
+        Scanner sc = new Scanner(System.in);
+        String map;
+
+        System.out.println("\nChoose your difficulty level [Type 1 for EASY or 2 for HARD]");
+        int level = sc.nextInt();
+
+        if (level == 1) {
+            map = "EASY MAP";
+        } else if (level == 2){
+            map = "HARD MAP";
+        } else {
+            map = "UNDEFINED MAP LEVEL";
+        }
+
+        sc.close();
+        System.out.println("Game Difficulty Level: " + map);
+
+        return map;
+    }
 }

@@ -36,7 +36,7 @@ public class AutomatedTesting implements Testing{
         System.out.print("\n---------- Testing Player Builder Pattern ----------\n \n");
 
         Player p1 = new Player.PlayerBuilder("Ayoub")
-        .addMiddleName("Gammma")
+        .addMiddleName("Gamma")
         .addLastName("Jdair")
         .addAge(21)
         .addEmail_address("ayoubjdair00@gmail.com")
