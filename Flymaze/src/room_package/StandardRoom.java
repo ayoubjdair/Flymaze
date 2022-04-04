@@ -1,20 +1,22 @@
 package room_package;
 
+import java.util.ArrayList;
+
 import enemy_package.Enemy;
+import items_package.Items;
 
 public class StandardRoom implements Room{
 	
 	int id;
-	//int connectingRooms[];
-	String itemsInRoom[];
-	Enemy enemiesInRoom[];
+	ArrayList<Items> itemsInRoom = new ArrayList<Items>();
+	ArrayList<Enemy> enemiesInRoom = new ArrayList<Enemy>();
 	int n, s, e, w;
 	
 	public StandardRoom() {
 		
 	}
 	
-	public StandardRoom(int id, String[] items, Enemy[] enemies, int nExit, int sExit, int eExit, int wExit) {
+	public StandardRoom(int id, ArrayList<Items> items, ArrayList<Enemy> enemies, int nExit, int sExit, int eExit, int wExit) {
 		this.id = id;
 		this.itemsInRoom = items;
 		this.enemiesInRoom = enemies;
@@ -29,74 +31,48 @@ public class StandardRoom implements Room{
 	
 	@Override
 	public void removeItem(String itemName) {
-		//This is to check that the value was found
-		boolean notNull = false;
-		int index = 0;
-		
-		for (int i=0;i<itemsInRoom.length;i++) {
-		    if (itemsInRoom[i].equals(itemName)) {
-		        index = i;
-		        notNull = true;
-		        break;
-		    }
+		int itemIndex = 0;
+		for (int i = 0; i < itemsInRoom.size(); i++) {
+			if(itemsInRoom.get(i).getName() == itemName) {
+				itemIndex = i;
+				break;
+			}
 		}
-		
-		if(notNull == true) {
-			
-			String[] newArray = new String[itemsInRoom.length - 1];
-			 
-	        for (int i = 0, k = 0; i < itemsInRoom.length; i++) {
-	        	if (i == index) {
-	                continue;
-	            }
-	            newArray[k++] = itemsInRoom[i];
-	        }
-	        
-	        itemsInRoom = newArray;
-			
-		}
+		itemsInRoom.remove(itemIndex);
 	}
 		
 		
 	
 	@Override
 	public void removeEnemy(String enemyName) {
+		int enemyIndex = 0;
+		for (int i = 0; i < enemiesInRoom.size(); i++) {
+			if(enemiesInRoom.get(i).getName() == enemyName) {
+				enemyIndex = i;
+				break;
+			}
+		}
+		enemiesInRoom.remove(enemyIndex);
+		
+		
+	}
+	
+	@Override
+	public void addItem(Items item) {
+		itemsInRoom.add(item);
+	}
+	
+	@Override
+	public void addEnemy(Enemy e) {
+		enemiesInRoom.add(e);	
+	}
 
-		boolean notNull = false;
-		int index = 0;
-		
-		for (int i=0;i<enemiesInRoom.length;i++) {
-		    if (enemiesInRoom[i].equals(enemyName)) {
-		        index = i;
-		        notNull = true;
-		        break;
-		    }
-		}
-		
-		if(notNull == true) {
-			
-			Enemy[] newArray = new Enemy[enemiesInRoom.length - 1];
-			 
-	        for (int i = 0, k = 0; i < enemiesInRoom.length; i++) {
-	        	if (i == index) {
-	                continue;
-	            }
-	            newArray[k++] = enemiesInRoom[i];
-	        }
-	        
-	        enemiesInRoom = newArray;
-			
-		}
-		
-	}
 	@Override
-	public void addItem() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void addEnemy() {
-		// TODO Auto-generated method stub
+	public void setExits(int north, int south, int east, int west) {
+		this.n = north;
+		this.s = south;
+		this.e = east;
+		this.w = west;
 		
 	}
 	

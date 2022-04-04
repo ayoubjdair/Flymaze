@@ -1,7 +1,7 @@
 package map_package;
 public interface Map {
 	
-	public void populateRoomIDs();
+	public void populateRooms();
 	
 	public void populateRoomExits();
 

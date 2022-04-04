@@ -10,7 +10,7 @@ public class HardMap implements Map{
 		
 	}
 	
-	public void populateRoomIDs() {
+	public void populateRooms() {
 		
 	}
 
