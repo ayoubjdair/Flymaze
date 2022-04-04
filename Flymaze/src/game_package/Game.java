@@ -28,34 +28,34 @@ public class Game {
 
 	public static void main(String[] args){
 
-		// AutomatedTesting tester = new AutomatedTesting();
+		AutomatedTesting tester = new AutomatedTesting();
 		// tester.testItemBuilder();
 		// tester.testPlayerBuilder();
 		// tester.testComposite();
+		tester.testFlyweight();
 
-		InitGame game = new InitGame();
-		game.printWelcomeMessage();
-		player = game.init();
-		String map = game.getMapType();
-		game.printGuidelines();
-		game.printMap(map);
+	// 	InitGame game = new InitGame();
+	// 	game.printWelcomeMessage();
+	// 	player = game.init();
+	// 	String map = game.getMapType();
+	// 	game.printGuidelines();
+	// 	game.printMap(map);
 
-	    }
+	//     }
 
-	   public static Memento createMemento() {
+	//    public static Memento createMemento() {
 		
-	    Memento memento = new Memento(player, map);
-		return memento;
-	   }
+	//     Memento memento = new Memento(player, map);
+	// 	return memento;
+	//    }
 	
-	   public static void restoreMemento(Memento m) {
+	//    public static void restoreMemento(Memento m) {
 		
-		   player = m.player;
-		   map = m.map;
+	// 	   player = m.player;
+	// 	   map = m.map;
 		
-	   }
-	
-	
+	//    }
+	}
 	
 }
 

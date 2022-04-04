@@ -1,5 +1,9 @@
 package testing_package;
 import items_package.ItemConstructor;
+import items_package.ItemFactory;
+
+import javax.swing.plaf.synth.SynthSpinnerUI;
+
 import enemy_package.Enemies;
 import enemy_package.Vampire;
 import enemy_package.Zombie;
@@ -91,5 +95,24 @@ public class AutomatedTesting implements Testing{
         System.out.println(zombies.toString());
 
         System.out.print("---------- Testing Composite Complete ----------\n");
+    }
+
+    @Override
+    public void testFlyweight() {
+        System.out.print("\n---------- Testing Flyweight Pattern ----------\n \n");
+
+        System.out.println("Creating 2 Test Sword Items...");
+        for (int i = 0; i < 2; i++){
+            Item item = ItemFactory.getItem("Sword");
+            System.out.print(item.toString());
+        }
+
+        System.out.println("\n\nCreating 2 Test Potion Items...");
+        for (int i = 0; i < 2; i++){
+            Item item = ItemFactory.getItem("Potion");
+            System.out.print(item.toString());
+        }
+
+        System.out.print("---------- Testing Flyweight Complete ----------\n");
     }
 }
