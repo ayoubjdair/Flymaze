@@ -1,5 +1,24 @@
 package command_package;
 
-public class showMapCommand {
+import map_package.Map;
 
+public class showMapCommand implements commandInterface{
+
+	Map map;
+	
+	public showMapCommand(Map m) {
+		this.map = m;
+	}
+	
+	@Override
+	public void execute() {
+		System.out.println(map.showMap());
+		
+	}
+
+	
+	
+	
+	
+	
 }

@@ -12,7 +12,7 @@ public class HardMap implements Map{
 	
 	//This decides if it will be map layout 1 or two
 	int mapNum = (int) ((Math.random() * (2 - 1)) + 1);
-	String map;
+	String mapString;
 	
 	public HardMap() {
 		if (mapNum == 1) {
@@ -117,14 +117,14 @@ public class HardMap implements Map{
 	}
 
 	public String showMap() {
-		return map;
+		return mapString;
 	}
 
 	public void generateMapString() {
 		if(mapNum == 1) {
-			map = "[B] [12] [11]    \n[4]     [6] [7]\n[3] [2] [5] [8]\n[S] [1] [10] [9]";
+			mapString = "[B] [12] [11]    \n[4]     [6] [7]\n[3] [2] [5] [8]\n[S] [1] [10] [9]";
 		}else if(mapNum == 2) {
-			map = "[3] [4]  [5]  [6]\n[2] [9]  [8]  [7]\n[1] [10] [11] [12]\n[S] [B]  [14] [13]";
+			mapString = "[3] [4]  [5]  [6]\n[2] [9]  [8]  [7]\n[1] [10] [11] [12]\n[S] [B]  [14] [13]";
 		}
 	}
 

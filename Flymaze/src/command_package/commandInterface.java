@@ -1,5 +1,7 @@
 package command_package;
 
-public class commandInterface {
+public interface commandInterface {
 
+	public void execute();
+	
 }

@@ -11,7 +11,7 @@ public class EasyMap implements Map {
 	RoomFactory roomFactory = new RoomFactory();
 	//This decides if it will be map layout 1 or two
 	int mapNum = (int) ((Math.random() * (2 - 1)) + 1);
-	String map;
+	String mapString;
 	
 	public EasyMap() {
 		if (mapNum == 1) {
@@ -30,15 +30,15 @@ public class EasyMap implements Map {
 	
 	public String showMap() {
 		//To be printed by the command design pattern
-		return map;
+		return mapString;
 	}
 
 
 	public void generateMapString() {
 		if(mapNum == 1) {
-			map = "    [B]    \n[6] [7] [8]\n[5] [4] [3]\n[S] [1] [2]";
+			mapString = "    [B]    \n[6] [7] [8]\n[5] [4] [3]\n[S] [1] [2]";
 		}else if(mapNum == 2) {
-			map = "        [3] [4]    \n[S] [1] [2]        \n        [5] [6] [B]";
+			mapString = "        [3] [4]    \n[S] [1] [2]        \n        [5] [6] [B]";
 		}
 	}
 
