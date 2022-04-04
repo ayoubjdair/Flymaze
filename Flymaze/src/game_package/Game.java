@@ -1,14 +1,16 @@
-import java.util.Map;
+package game_package;
 
+import lukes_package.Map;
+import memento_package.Memento;
 import player_package.Player;
 import room_package.RoomFactory;
 import testing_package.AutomatedTesting;
 
-public class Main {
+public class Game {
 	
 	RoomFactory roomFactory = new RoomFactory();
 	//Get Ayoub to have a look at this
-	 static Player player = new Player();
+	 static Player player = new Player(null);
 	 //Add check to see if player chose easy or hard map then generate
 	 static Map map;
 	
@@ -47,13 +49,4 @@ public class Main {
 	
 }
 
-class Memento {
-	Player player;
-	Map map;
 
-	Memento (Player p, Map m){
-		this.player = p;
-		this.map = m;
-	}
-
-}

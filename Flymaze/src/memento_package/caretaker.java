@@ -1,18 +1,24 @@
 package memento_package;
 
-import com.sun.tools.javac.Main;
 
-import lukes_package.Map;
-import lukes_package.Memento;
-import player_package.Player;
+import java.util.ArrayList;
+
+import game_package.Game;
 
 public class caretaker {
 	
-	Player p;
-	Map m;
+	ArrayList<Memento> backupHistory = new ArrayList<Memento>();
+	
 
-	Memento captureMemento() {
-		Memento current = Main.createMemento();
+	void captureMemento() {
+		Memento current = Game.createMemento();
+		backupHistory.add(current);
+	}
+	
+	void restoreBackup() {
+		if(backupHistory.size() < 0) {
+			Game.restoreMemento(backupHistory.get(backupHistory.size()-1));
+		}
 	}
 	
 	

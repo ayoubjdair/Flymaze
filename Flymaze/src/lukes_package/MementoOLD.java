@@ -1,6 +1,6 @@
 package lukes_package;
 
-public class Memento {
+public class MementoOLD {
 
 	PlayerOLD playerSave;
 	Map mapSave;
