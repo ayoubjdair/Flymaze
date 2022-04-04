@@ -1,4 +1,9 @@
 package player_package;
+
+import java.util.ArrayList;
+
+import items_package.Item;
+
 // Demonstrates the builder design pattern
 public class Player {
 
@@ -8,20 +13,26 @@ public class Player {
     public String gender;
     public String email_address;
     public String favorite_colour;
-    public int level;
+
     public int age;
+    public int level = 1;
+    public int health = 100;
+    public int stamina = 100;
+    public int attackStrength = 10;
+
+    public ArrayList<Item> inventory;
 
     private Player(PlayerBuilder playerBuilder) {
         this.firstName = playerBuilder.firstName;
         this.middleName = playerBuilder.middleName;
         this.lastName = playerBuilder.lastName;
-        this.level = playerBuilder.level;
         this.gender = playerBuilder.gender;
         this.email_address = playerBuilder.email_address;
         this.favorite_colour = playerBuilder.favorite_colour;
-        this.favorite_colour = playerBuilder.favorite_colour;
+        this.age = playerBuilder.age;
     }
 
+    // Getters
     public String getFirstName() {
         return firstName;
     }
@@ -50,9 +61,45 @@ public class Player {
         return level;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public int getStaminal() {
+        return stamina;
+    }
+
+    public int getAttackStat() {
+        return attackStrength;
+    }
+
+    public ArrayList<Item> getInventory(){
+        return inventory;
+    }
+
+    public void addToInventory(Item item) {
+        inventory.add(item);
+    }
+
+    // Setters
+    public void setHealth(int health){
+        this.health = health;
+    }
+
+    public void setStamina(int stamina){
+        this.stamina = stamina;
+    }
+
+    public void setLevel(int level){
+        this.level = level;
+    }
+
     public String toString() {
         return "\nPlayer Name: " + firstName + " " + middleName + " " + lastName + " \n" +
                 "Player Level: " + level + "\n" +
+                "Player Health: " + health + "\n" +
+                "Player Stamina: " + stamina + "\n" +
+                "Player Inventory: " + getInventory().toString() + "\n" +
                 "Gender: " + gender + "\n" +
                 "Age: " + age + "\n" +
                 "Favorite Colour " + favorite_colour + "\n" + 
@@ -67,47 +114,47 @@ public class Player {
         private String gender;
         private String email_address;
         private String favorite_colour;
-        private int level;
-        private int age;
+       
+        public int age;
+        public int level = 1;
+        public int health = 100;
+        public int stamina = 100;
+        public int attackStrength = 10;
 
         public PlayerBuilder(String firstName) {
 			this.firstName = firstName;
 		}
 
-        public PlayerBuilder middleName(String middleName) {
+        public PlayerBuilder addMiddleName(String middleName) {
 			this.middleName = middleName;
             return this;
 		}
 
-        public PlayerBuilder lastName(String lastName) {
+        public PlayerBuilder addLastName(String lastName) {
 			this.lastName = lastName;
             return this;
 		}
 
-        public PlayerBuilder gender(String gender) {
+        public PlayerBuilder addGender(String gender) {
 			this.gender = gender;
             return this;
 		}
 
-        public PlayerBuilder email_address(String email_address) {
+        public PlayerBuilder addEmail_address(String email_address) {
 			this.email_address = email_address;
             return this;
 		}
 
-        public PlayerBuilder favorite_colour(String favorite_colour) {
+        public PlayerBuilder addFavorite_colour(String favorite_colour) {
 			this.favorite_colour = favorite_colour;
             return this;
 		}
 
-        public PlayerBuilder level(int level) {
-			this.level = level;
-            return this;
-		}
 
-        public PlayerBuilder age(int age) {
+        public PlayerBuilder addAge(int age) {
 			this.age = age;
             return this;
-		}
+        }
 
         public Player build(){
             Player player = new Player(this);

@@ -8,7 +8,7 @@ public class ConcreteAttackInterceptor implements Interceptor{
 		if(context.getPlayerObject().getInventory().size() > 0) {
 			for(int i = 0; i < context.getPlayerObject().getInventory().size(); i++) {
 				//This can be changed based on how Ayoub implements Items
-				attackStrength += context.getPlayerObject().getInventory().get(i);
+				attackStrength += context.getPlayerObject().getInventory().get(i).power;
 			}
 		}
 		
