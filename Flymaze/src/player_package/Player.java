@@ -15,10 +15,10 @@ public class Player {
     public String favorite_colour;
 
     public int age;
-    public int level = 1;
-    public int health = 100;
-    public int stamina = 100;
-    public int attackStrength = 10;
+    public int level;
+    public int health;
+    public int stamina;
+    public int attackStrength;
 
     public ArrayList<Item> inventory;
 
@@ -30,6 +30,10 @@ public class Player {
         this.email_address = playerBuilder.email_address;
         this.favorite_colour = playerBuilder.favorite_colour;
         this.age = playerBuilder.age;
+        this.level = playerBuilder.level;
+        this.health = playerBuilder.health;
+        this.stamina = playerBuilder.stamina;
+        this.attackStrength = playerBuilder.attackStrength;
     }
 
     // Getters
@@ -99,10 +103,10 @@ public class Player {
                 "Player Level: " + level + "\n" +
                 "Player Health: " + health + "\n" +
                 "Player Stamina: " + stamina + "\n" +
-                "Player Inventory: " + getInventory().toString() + "\n" +
+                "Player Inventory: " + getInventory() + "\n" +
                 "Gender: " + gender + "\n" +
                 "Age: " + age + "\n" +
-                "Favorite Colour " + favorite_colour + "\n" + 
+                "Favorite Colour: '" + favorite_colour + "'\n" + 
                 "Email: " + email_address + "\n";
     }
 

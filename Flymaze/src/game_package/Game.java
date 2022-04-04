@@ -8,11 +8,11 @@ import testing_package.AutomatedTesting;
 
 public class Game {
 	
-	RoomFactory roomFactory = new RoomFactory();
-	//Get Ayoub to have a look at this
-	 static Player player = new Player(null);
-	 //Add check to see if player chose easy or hard map then generate
-	 static Map map;
+	// RoomFactory roomFactory = new RoomFactory();
+	// //Get Ayoub to have a look at this
+	//  static Player player = new Player(null);
+	//  //Add check to see if player chose easy or hard map then generate
+	//  static Map map;
 	
 	
 	//Need to create dispatcher object here I think
@@ -32,18 +32,18 @@ public class Game {
 		tester.testComposite();
     }
 
-	public static Memento createMemento() {
+	// public static Memento createMemento() {
 		
-		Memento memento = new Memento(player, map);
+	// 	Memento memento = new Memento(player, map);
 		
-	}
+	// }
 	
-	public static void restoreMemento(Memento m) {
+	// public static void restoreMemento(Memento m) {
 		
-		player = m.player;
-		map = m.map;
+	// 	player = m.player;
+	// 	map = m.map;
 		
-	}
+	// }
 	
 	
 	
