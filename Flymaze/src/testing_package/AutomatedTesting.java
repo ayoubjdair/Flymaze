@@ -36,13 +36,22 @@ public class AutomatedTesting implements Testing{
         System.out.print("\n---------- Testing Player Builder Pattern ----------\n \n");
 
         Player p1 = new Player.PlayerBuilder("Ayoub")
-        .age(21)
-        .email_address("ayoubjdair00@gmail.com")
-        .level(1)
-        .gender("Male")
+        .addMiddleName("Gammma")
+        .addLastName("Jdair")
+        .addAge(21)
+        .addEmail_address("ayoubjdair00@gmail.com")
+        .addGender("Male")
+        .addFavorite_colour("Garnet Red")
         .build();
 
-        System.out.println(p1);
+        Player p2 = new Player.PlayerBuilder("Mia")
+        .addGender("Female")
+        .addLastName("Jdair")
+        .addFavorite_colour("Mint Green")
+        .build();
+
+        System.out.println(p1.toString());
+        System.out.println(p2.toString());
 
         System.out.print("---------- Testing Player Builder Complete ----------\n");
     }
