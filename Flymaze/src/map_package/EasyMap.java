@@ -14,22 +14,18 @@ public class EasyMap implements Map {
 	String map;
 	
 	public EasyMap() {
-		
 		if (mapNum == 1) {
 			for (int i = 0; i < 9; i++) {
 				rooms.add(roomFactory.getRoom("STANDARD ROOM"));
 			}
 			rooms.add(roomFactory.getRoom("BOSS ROOM"));
 		} 
-		
 		else if(mapNum == 2) {
 			for (int i = 0; i < 7; i++) {
 				rooms.add(roomFactory.getRoom("STANDARD ROOM"));
 			}
 			rooms.add(roomFactory.getRoom("BOSS ROOM"));
 		}
-		
-		
 	}
 	
 	public String showMap() {
