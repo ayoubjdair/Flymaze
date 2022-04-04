@@ -1,5 +1,7 @@
 package game_package;
 
+import java.util.Scanner;
+
 import lukes_package.Map;
 import memento_package.Memento;
 import player_package.Player;
@@ -26,11 +28,18 @@ public class Game {
 
 	public static void main(String[] args){
 
-		AutomatedTesting tester = new AutomatedTesting();
-		tester.testItemBuilder();
-		tester.testPlayerBuilder();
-		tester.testComposite();
-    }
+		// AutomatedTesting tester = new AutomatedTesting();
+		// tester.testItemBuilder();
+		// tester.testPlayerBuilder();
+		// tester.testComposite();
+
+		InitGame game = new InitGame();
+		game.printWelcomeMessage();
+		Player player = game.init();
+		game.printGuidelines();
+		game.printMap();
+
+	    }
 
 	// public static Memento createMemento() {
 		

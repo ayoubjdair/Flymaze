@@ -106,7 +106,7 @@ public class Player {
                 "Player Inventory: " + getInventory() + "\n" +
                 "Gender: " + gender + "\n" +
                 "Age: " + age + "\n" +
-                "Favorite Colour: '" + favorite_colour + "'\n" + 
+                "Favorite Colour: " + favorite_colour + "\n" + 
                 "Email: " + email_address + "\n";
     }
 
