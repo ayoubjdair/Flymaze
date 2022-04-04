@@ -7,6 +7,6 @@ public interface Map {
 
 	public String showMap();
 	
-	public void generateMap();
+	public void generateMapString();
 	
 }

@@ -7,13 +7,11 @@ import room_package.RoomFactory;
 
 public class EasyMap implements Map {
 	
-	String map;
-	String[] exitDirections;
 	ArrayList<Room> rooms = new ArrayList<Room>();
 	RoomFactory roomFactory = new RoomFactory();
-	//Room[] rooms;
 	//This decides if it will be map layout 1 or two
 	int mapNum = (int) ((Math.random() * (2 - 1)) + 1);
+	String map;
 	
 	public EasyMap() {
 		
@@ -40,8 +38,12 @@ public class EasyMap implements Map {
 	}
 
 
-	public void generateMap() {
-		map = "[1] [2] [3]\n[4] [5] [6]\n[7] [8] [9]";
+	public void generateMapString() {
+		if(mapNum == 1) {
+			map = "    [B]    \n[6] [7] [8]\n[5] [4] [3]\n[S] [1] [2]";
+		}else if(mapNum == 2) {
+			map = "        [3] [4]    \n[S] [1] [2]        \n        [5] [6] [B]";
+		}
 	}
 
 
@@ -52,10 +54,22 @@ public class EasyMap implements Map {
 			
 			//Need enemy builder in here
 			rooms.get(zombieRoom).addEnemy(null);
+			rooms.get(vampireRoom).addEnemy(null);
 		}
 		
 		else if (mapNum == 2) {
+			int zombieRoom1 = (int) ((Math.random() * (9 - 1)) + 1);
+			int zombieRoom2 = (int) ((Math.random() * (9 - 1)) + 1);
+			int zombieRoom3 = (int) ((Math.random() * (9 - 1)) + 1);
+			int vampireRoom1 = (int) ((Math.random() * (9 - 1)) + 1);
+			int vampireRoom2 = (int) ((Math.random() * (9 - 1)) + 1);
 			
+			//Need enemy builder in here
+			rooms.get(zombieRoom1).addEnemy(null);
+			rooms.get(zombieRoom2).addEnemy(null);
+			rooms.get(zombieRoom3).addEnemy(null);
+			rooms.get(vampireRoom1).addEnemy(null);
+			rooms.get(vampireRoom2).addEnemy(null);
 			
 		}
 		

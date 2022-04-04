@@ -22,7 +22,7 @@ public class HardMap implements Map{
 		return map;
 	}
 
-	public void generateMap() {
+	public void generateMapString() {
 		
 	}
 
