@@ -1,6 +1,6 @@
 package memento_package;
 
-import lukes_package.Map;
+import map_package.Map;
 import player_package.Player;
 
 public class Memento {

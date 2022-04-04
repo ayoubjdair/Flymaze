@@ -1,5 +1,7 @@
 package lukes_package;
 
+import map_package.Map;
+
 public class MementoOLD {
 
 	PlayerOLD playerSave;

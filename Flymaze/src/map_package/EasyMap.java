@@ -1,7 +1,6 @@
-package lukes_package;
+package map_package;
 
-import roomPackage.Room;
-
+import room_package.Room;
 
 public class EasyMap implements Map {
 	

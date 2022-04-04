@@ -1,4 +1,4 @@
-package lukes_package;
+package map_package;
 
 public class HardMap implements Map{
 

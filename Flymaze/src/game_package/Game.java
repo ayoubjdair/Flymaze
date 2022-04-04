@@ -2,7 +2,7 @@ package game_package;
 
 import java.util.Scanner;
 
-import lukes_package.Map;
+import map_package.Map;
 import memento_package.Memento;
 import player_package.Player;
 import room_package.RoomFactory;
