@@ -36,8 +36,9 @@ public class Game {
 		InitGame game = new InitGame();
 		game.printWelcomeMessage();
 		player = game.init();
+		String map = game.getMapType();
 		game.printGuidelines();
-		game.printMap();
+		game.printMap(map);
 
 	    }
 

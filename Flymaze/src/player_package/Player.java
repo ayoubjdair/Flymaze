@@ -130,33 +130,45 @@ public class Player {
 		}
 
         public PlayerBuilder addMiddleName(String middleName) {
-			this.middleName = middleName;
+            if(!middleName.isEmpty()){
+                this.middleName = middleName;
+            }
             return this;
 		}
 
         public PlayerBuilder addLastName(String lastName) {
-			this.lastName = lastName;
+			if(!lastName.isEmpty()){
+                this.lastName = lastName;
+            }
             return this;
 		}
 
         public PlayerBuilder addGender(String gender) {
-			this.gender = gender;
+            if(!gender.isEmpty()){
+                this.gender = gender;
+            }
             return this;
 		}
 
         public PlayerBuilder addEmail_address(String email_address) {
-			this.email_address = email_address;
+			if(!email_address.isEmpty()){
+                this.email_address = email_address;
+            }
             return this;
 		}
 
         public PlayerBuilder addFavorite_colour(String favorite_colour) {
-			this.favorite_colour = favorite_colour;
+			if(!favorite_colour.isEmpty()){
+                this.favorite_colour = favorite_colour;
+            }
             return this;
 		}
 
 
         public PlayerBuilder addAge(int age) {
-			this.age = age;
+			if(age != 0){
+                this.age = age;
+            }
             return this;
         }
 

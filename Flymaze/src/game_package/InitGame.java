@@ -6,38 +6,42 @@ import player_package.Player;
 public class InitGame {
 
     public void printWelcomeMessage(){
-        System.out.println("░░░░░░ Welcome to FlyMaze! ░░░░░░");
+        System.out.println("\n       Welcome to FlyMaze! ░░░░░░");
 
-        System.out.println("░░░░░░░░░░░░ ▬▬▬.◙.▬▬▬           ");
-        System.out.println("░░░░░░░░░░░░  ═▂▄▄▓▄▄▂           ");
-        System.out.println("░░░░░░░░░░░░ ◢◤ █▀▀████▄▄▄▄◢◤    ");
-        System.out.println("░░░░░░░░░░░░ █▄▂█ █▄███▀▀▀▀▀▀▀╬  ");
-        System.out.println("░░░░░░░░░░░░ ◥█████◤             ");
-        System.out.println("░░░░░░░░░░░░ ══╩══╩═             ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬                 ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬                 ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬                 ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬                 ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬                 ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬ ☻/              ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬/▌               ");
-        System.out.println("░░░░░░░░░░░░ ╬═╬/                ");
+        System.out.println("             ▬▬▬.◙.▬▬▬           ");
+        System.out.println("              ═▂▄▄▓▄▄▂           ");
+        System.out.println("             ◢◤ █▀▀████▄▄▄▄◢◤    ");
+        System.out.println("             █▄▂█ █▄███▀▀▀▀▀▀▀╬  ");
+        System.out.println("             ◥█████◤             ");
+        System.out.println("             ══╩══╩═             ");
+        System.out.println("             ╬═╬                 ");
+        System.out.println("             ╬═╬                 ");
+        System.out.println("             ╬═╬                 ");
+        System.out.println("             ╬═╬                 ");
+        System.out.println("             ╬═╬                 ");
+        System.out.println("             ╬═╬ ☻/              ");
+        System.out.println("             ╬═╬/▌               ");
+        System.out.println("             ╬═╬/                ");
 
-        System.out.println("You just got dropped into the maze...");
+        System.out.println("\nYou just got dropped into the maze...");
     }
 
     public void printGuidelines(){
         System.out.println("\nPLACEHOLDER Player Instructions");
     }
 
-    public void printMap(){
-        System.out.println("\nPLACEHOLDER Map image");
+    public void printMap(String map){
+        System.out.println("\nPLACEHOLDER Map image of type: " + map);
     }
 
     public Player init(){
         Scanner sc = new Scanner(System.in);
 
 		System.out.println("\nEnter your first name:");
+        while(!sc.hasNext()){
+            System.out.println("Please enter your first name:");
+            sc.nextLine();
+        }
         String firstName = sc.nextLine();
 
         System.out.println("Enter your middle name (Press enter to skip):");
@@ -58,7 +62,7 @@ public class InitGame {
         System.out.println("Enter your age (Press enter to skip):");
         int age = sc.nextInt();
 
-        sc.close();
+        // sc.close();
 
         Player player = new Player.PlayerBuilder(firstName)
         .addMiddleName(middleName)
@@ -78,8 +82,9 @@ public class InitGame {
         Scanner sc = new Scanner(System.in);
         String map;
 
-        System.out.println("\nChoose your difficulty level [Type 1 for EASY or 2 for HARD]");
+        System.out.println("\nChoose difficulty level [Type 1 for EASY or 2 for HARD]");
         int level = sc.nextInt();
+        sc.close();
 
         if (level == 1) {
             map = "EASY MAP";
@@ -89,7 +94,6 @@ public class InitGame {
             map = "UNDEFINED MAP LEVEL";
         }
 
-        sc.close();
         System.out.println("Game Difficulty Level: " + map);
 
         return map;
