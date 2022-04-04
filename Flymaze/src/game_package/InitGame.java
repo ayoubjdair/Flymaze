@@ -37,7 +37,7 @@ public class InitGame {
     public Player init(){
         Scanner sc = new Scanner(System.in);
 
-		System.out.println("/nEnter your first name:");
+		System.out.println("\nEnter your first name:");
         String firstName = sc.nextLine();
 
         System.out.println("Enter your middle name (Press enter to skip):");
@@ -69,7 +69,7 @@ public class InitGame {
         .addFavorite_colour(colour)
         .build();
 
-        System.out.print("/nYour Player Character: ");
+        System.out.print("\nYour Player Character: ");
         System.out.print(player.toString());
         return player;
     }
