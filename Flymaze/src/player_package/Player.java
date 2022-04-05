@@ -2,7 +2,6 @@ package player_package;
 
 import java.util.ArrayList;
 
-import items_package.Item;
 import items_package.Items;
 
 // Demonstrates the builder design pattern

@@ -2,8 +2,6 @@ package testing_package;
 import items_package.ItemConstructor;
 import items_package.ItemFactory;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
-
 import enemy_package.Enemies;
 import enemy_package.Vampire;
 import enemy_package.Zombie;

@@ -1,7 +1,6 @@
 package room_package;
 
 import enemy_package.Enemy;
-import items_package.Item;
 import items_package.Items;
 
 public interface Room {

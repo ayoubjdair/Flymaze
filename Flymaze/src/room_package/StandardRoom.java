@@ -3,7 +3,6 @@ package room_package;
 import java.util.ArrayList;
 
 import enemy_package.Enemy;
-import items_package.Item;
 import items_package.Items;
 
 public class StandardRoom implements Room{

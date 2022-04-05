@@ -1,6 +1,5 @@
 package command_package;
 
-import items_package.Item;
 import items_package.Items;
 import player_package.Player;
 
