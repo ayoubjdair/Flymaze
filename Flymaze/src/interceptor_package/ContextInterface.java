@@ -4,11 +4,12 @@ import enemy_package.Enemy;
 import player_package.Player;
 
 public interface ContextInterface {
-//	public String applyDamage();
 	
+	//getters
 	public Player getPlayerObject();
 	public Enemy getEnemyObject();
 	
+	//setters
 	public void setPlayerObject(Player p);
 	public void setEnemyObject(Enemy e);
 	
