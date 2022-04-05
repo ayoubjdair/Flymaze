@@ -8,11 +8,11 @@ public class Zombie implements Enemy {
     private boolean dead;
     private String name;
     
-    public Zombie(String name, int roomNumber, int health, boolean dead){
-        this.name = name;
+    public Zombie(int roomNumber){
+        this.name = "Zombie";
         this.roomNumber = roomNumber;
-        this.health = health;
-        this.dead = dead;
+        this.health = 100;
+        this.dead = false;
     }
 
     // Getters

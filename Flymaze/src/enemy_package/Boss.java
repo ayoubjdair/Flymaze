@@ -4,13 +4,15 @@ package enemy_package;
 // leaf node
 public class Boss implements Enemy {
     private int roomNumber;
-    private int health = 200;
-    private boolean dead = false;
+    private int health;
+    private boolean dead;
     private String name;
     
-    public Boss(String name, int roomNumber){
-        this.name = name;
+    public Boss(int roomNumber){
+        this.name = "BOSS";
         this.roomNumber = roomNumber;
+        this.health = 200;
+        this.dead = false;
     }
 
     // Getters

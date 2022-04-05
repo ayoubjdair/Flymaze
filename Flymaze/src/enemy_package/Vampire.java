@@ -7,11 +7,11 @@ public class Vampire implements Enemy {
     private boolean dead;
     private String name;
 
-    public Vampire(String name, int roomNumber, int health, boolean dead){
+    public Vampire(int roomNumber){
+        this.name = "Vampire";
         this.roomNumber = roomNumber;
-        this.health = health;
-        this.dead = dead;
-        this.name = name;
+        this.health = 100;
+        this.dead = false;
     }
 
      // Getters
