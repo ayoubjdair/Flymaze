@@ -33,34 +33,44 @@ public class Game {
 		caretaker.captureMemento();
 		
 
-		// AutomatedTesting tester = new AutomatedTesting();
-		// tester.testItemBuilder();
-		// tester.testPlayerBuilder();
-		// tester.testComposite();
-		// tester.testFlyweight();
+		
 
 	 	InitGame game = new InitGame();
 	 	game.printWelcomeMessage();
-	 	player = game.init();
-	 	
-	 	String mapLevel = game.getMapType();
-	 	map = mapFactory.getMap(mapLevel);
-	 	map.populateRooms();
-	 	map.populateRoomExits();
-	 	map.generateMapString();
-	 	showMapCommand mapCommand = new showMapCommand(map);
-		commandInvoker.setCommand(mapCommand);
-	 	
-	 	game.printGuidelines();
-	 	commandInvoker.commandInvoked();
-		
-		while(!gameOver){
-			game.play(commandInvoker, player, map);
-			//If player dies the game is restored to the beginning by Caretaker
-			if(player.getHealth()<0) {
-				caretaker.restoreBackup();
+		game.mainMenu();
+
+	 	Scanner sc = new Scanner(System.in);
+		System.out.println("\nEnter a number...");
+
+        int input = sc.nextInt();
+        if (input == 1){
+
+            player = game.init();
+			String mapLevel = game.getMapType();
+			map = mapFactory.getMap(mapLevel);
+			map.populateRooms();
+			map.populateRoomExits();
+			map.generateMapString();
+			showMapCommand mapCommand = new showMapCommand(map);
+			commandInvoker.setCommand(mapCommand);
+			
+			game.printGuidelines();
+			commandInvoker.commandInvoked();
+			
+			while(!gameOver){
+				game.play(commandInvoker, player, map);
+				//If player dies the game is restored to the beginning by Caretaker
+				if(player.getHealth()<0) {
+					caretaker.restoreBackup();
+				}
 			}
-		}
+
+        } else if (input == 2){
+            game.automatedTestingOption();
+        } else {
+            System.out.println("Enter either 1 or 2...");
+			System.out.println("Please restart the game.");
+        }
 		
 	}
 	

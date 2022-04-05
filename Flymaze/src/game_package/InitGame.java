@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 import command_package.invoker;
 import command_package.moveCommand;
 import command_package.pickUpCommand;
@@ -15,6 +17,7 @@ import interceptor_package.Dispatcher;
 import items_package.Items;
 import map_package.Map;
 import player_package.Player;
+import testing_package.AutomatedTesting;
 
 public class InitGame {
 
@@ -36,6 +39,22 @@ public class InitGame {
         System.out.println("ATTACK -> To attack enemy");
         System.out.println("HELP -> View these instructions again");
         System.out.println("-------------------------------------------------\n");
+    }
+
+    public void mainMenu(){
+        System.out.println("\n--------Main Menu--------");
+        System.out.println("Select an option:");
+        System.out.println("1) START GAME");
+        System.out.println("2) Run Automated Tests");
+    }
+
+    public void automatedTestingOption(){
+        AutomatedTesting tester = new AutomatedTesting();
+		tester.testItemBuilder();
+		tester.testPlayerBuilder();
+		tester.testComposite();
+		tester.testFlyweight();
+        System.out.println("Please restart the game.");
     }
 
     public Player init(){
