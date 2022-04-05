@@ -54,8 +54,8 @@ public class EasyMap implements Map {
 			int zombieRoom = (int) ((Math.random() * (9 - 1)) + 1);
 			int vampireRoom = (int) ((Math.random() * (9 - 1)) + 1);
 			
-			Zombie zombie = new Zombie();
-			Vampire vampire = new Vampire();
+			Zombie zombie = new Zombie(zombieRoom);
+			Vampire vampire = new Vampire(vampireRoom);
 			
 			//Need enemy builder in here
 			rooms.get(zombieRoom).addEnemy(zombie);
@@ -69,11 +69,11 @@ public class EasyMap implements Map {
 			int vampireRoom1 = (int) ((Math.random() * (9 - 1)) + 1);
 			int vampireRoom2 = (int) ((Math.random() * (9 - 1)) + 1);
 			
-			Zombie zombie1 = new Zombie();
-			Zombie zombie2 = new Zombie();
-			Zombie zombie3 = new Zombie();
-			Vampire vampire1 = new Vampire();
-			Vampire vampire2 = new Vampire();
+			Zombie zombie1 = new Zombie(zombieRoom1);
+			Zombie zombie2 = new Zombie(zombieRoom2);
+			Zombie zombie3 = new Zombie(zombieRoom3);
+			Vampire vampire1 = new Vampire(vampireRoom1);
+			Vampire vampire2 = new Vampire(vampireRoom2);
 			
 			//Need enemy builder in here
 			rooms.get(zombieRoom1).addEnemy(zombie1);
