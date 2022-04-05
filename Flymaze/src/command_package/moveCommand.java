@@ -16,24 +16,24 @@ public class moveCommand implements commandInterface{
 	
 	@Override
 	public void execute() {
-		//Need method for this talk with Ayoub
 		int currentRoom = player.getCurrentRoom();
 		
 		if(direction == "NORTH") {
 			if(map.getRooms().get(currentRoom).getNorth() != -1) {
 				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
 			}
-			
 		}else if(direction == "SOUTH") {
-			
+			if(map.getRooms().get(currentRoom).getSouth() != -1) {
+				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
+			}
 		}else if(direction == "EAST") {
-			
+			if(map.getRooms().get(currentRoom).getEast() != -1) {
+				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
+			}
 		}else if(direction == "WEST") {
-			
+			if(map.getRooms().get(currentRoom).getWest() != -1) {
+				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
+			}
 		}
-		
-		
-		
 	}
-	
 }
