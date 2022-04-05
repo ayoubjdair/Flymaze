@@ -4,7 +4,7 @@ import enemy_package.Enemy;
 import player_package.Player;
 
 public interface ContextInterface {
-	public String applyDamage();
+//	public String applyDamage();
 	
 	public Player getPlayerObject();
 	public Enemy getEnemyObject();
