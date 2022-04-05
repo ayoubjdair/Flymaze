@@ -1,14 +1,15 @@
 package command_package;
 
 import items_package.Item;
+import items_package.Items;
 import player_package.Player;
 
 public class pickUpCommand implements commandInterface{
 	
 	Player player;
-	Item item;
+	Items item;
 	
-	public pickUpCommand (Player p, Item i) {
+	public pickUpCommand (Player p, Items i) {
 		this.player = p;
 		this.item = i;
 	}

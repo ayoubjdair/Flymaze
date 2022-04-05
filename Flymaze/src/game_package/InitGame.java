@@ -15,21 +15,6 @@ public class InitGame {
     public void printWelcomeMessage(){
         System.out.println("\n       Welcome to FlyMaze!");
 
-        System.out.println("             ▬▬▬.◙.▬▬▬           ");
-        System.out.println("              ═▂▄▄▓▄▄▂           ");
-        System.out.println("             ◢◤ █▀▀████▄▄▄▄◢◤    ");
-        System.out.println("             █▄▂█ █▄███▀▀▀▀▀▀▀╬  ");
-        System.out.println("             ◥█████◤             ");
-        System.out.println("             ══╩══╩═             ");
-        System.out.println("             ╬═╬                 ");
-        System.out.println("             ╬═╬                 ");
-        System.out.println("             ╬═╬                 ");
-        System.out.println("             ╬═╬                 ");
-        System.out.println("             ╬═╬                 ");
-        System.out.println("             ╬═╬ ☻/              ");
-        System.out.println("             ╬═╬/▌               ");
-        System.out.println("             ╬═╬/                ");
-
         System.out.println("\nYou just got dropped into the maze...");
     }
 
@@ -141,16 +126,21 @@ public class InitGame {
                 i.setCommand(moveECommand);
                 i.commandInvoked();
                 break;
-            case "PICKUP":
-                pickUpCommand pickUpCommand = new pickUpCommand(p, item);
+            case "PICKUP SWORD":
+                pickUpCommand pickUpCommand = new pickUpCommand(p, map.getRooms().get(p.getCurrentRoom()).removeItem("Sword"));
                 i.setCommand(pickUpCommand);
+                i.commandInvoked();
+                break;
+            case "PICKUP POTION":
+                pickUpCommand pickUpCommand2 = new pickUpCommand(p, map.getRooms().get(p.getCurrentRoom()).removeItem("Potion"));
+                i.setCommand(pickUpCommand2);
                 i.commandInvoked();
                 break;
             case "ATTACK":
                 //
                 break;
             case "USE":
-                usePotionCommand useCommand = new usePotionCommand(p, potion);
+                usePotionCommand useCommand = new usePotionCommand(p, p.checkInventory("Potion"));
                 i.setCommand(useCommand);
                 i.commandInvoked();
                 break;

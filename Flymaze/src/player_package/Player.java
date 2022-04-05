@@ -3,6 +3,7 @@ package player_package;
 import java.util.ArrayList;
 
 import items_package.Item;
+import items_package.Items;
 
 // Demonstrates the builder design pattern
 public class Player {
@@ -21,7 +22,7 @@ public class Player {
     public int attackStrength;
     public int roomNumber;
 
-    public ArrayList<Item> inventory;
+    public ArrayList<Items> inventory;
 
     private Player(PlayerBuilder playerBuilder) {
         this.firstName = playerBuilder.firstName;
@@ -83,11 +84,11 @@ public class Player {
         return roomNumber;
     }
 
-    public ArrayList<Item> getInventory(){
+    public ArrayList<Items> getInventory(){
         return inventory;
     }
 
-    public void addToInventory(Item item) {
+    public void addToInventory(Items item) {
         inventory.add(item);
     }
 
@@ -118,6 +119,16 @@ public class Player {
                 "Age: " + age + "\n" +
                 "Favorite Colour: " + favorite_colour + "\n" + 
                 "Email: " + email_address + "\n";
+    }
+    
+    public Items checkInventory(String name) {
+    	int itemIndex = 0;
+    	for(int i = 0; i < this.inventory.size(); i++) {
+    		if(this.inventory.get(i).getName() == name) {
+    			itemIndex = i;
+    		}
+    	}
+    	return this.inventory.get(itemIndex);
     }
 
     public static class PlayerBuilder {

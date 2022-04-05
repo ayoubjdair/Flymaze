@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 import game_package.Game;
 
-public class caretaker {
+public class Caretaker {
+	
+	private static Caretaker firstInstance = null;
 	
 	ArrayList<Memento> backupHistory = new ArrayList<Memento>();
 	
@@ -19,4 +21,13 @@ public class caretaker {
 			Game.restoreMemento(backupHistory.get(backupHistory.size()-1));
 		}
 	}
+	
+	public static Caretaker getInstance()
+    {
+        if(firstInstance == null)
+        {
+            firstInstance = new Caretaker();
+        }
+        return firstInstance;
+    }
 }

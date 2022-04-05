@@ -1,16 +1,17 @@
 package command_package;
 
 import items_package.Item;
+import items_package.Items;
 import player_package.Player;
 
 public class usePotionCommand implements commandInterface{
 	
 	Player player;
-	Item potion;
+	Items potion;
 	
-	public usePotionCommand(Player p, Item potion) {
+	public usePotionCommand(Player p, Items items) {
 		this.player = p;
-		this.potion = potion;
+		this.potion = items;
 	}
 	
 	@Override

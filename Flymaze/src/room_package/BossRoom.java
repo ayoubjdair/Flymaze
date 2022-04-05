@@ -13,7 +13,7 @@ public class BossRoom implements Room{
 	int n, s, e, w;
 
 	@Override
-	public void removeItem(String itemName) {
+	public Items removeItem(String itemName) {
 		int itemIndex = 0;
 		for (int i = 0; i < itemsInRoom.size(); i++) {
 			if(itemsInRoom.get(i).getName() == itemName) {
@@ -21,7 +21,9 @@ public class BossRoom implements Room{
 				break;
 			}
 		}
+		Items temp = itemsInRoom.get(itemIndex);
 		itemsInRoom.remove(itemIndex);
+		return temp;
 	}
 
 	@Override

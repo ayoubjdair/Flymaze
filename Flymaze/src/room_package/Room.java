@@ -1,11 +1,12 @@
 package room_package;
 
 import enemy_package.Enemy;
+import items_package.Item;
 import items_package.Items;
 
 public interface Room {
 	
-	public void removeItem(String itemName);
+	public Items removeItem(String itemName);
 	
 	public void removeEnemy(String enemyName);
 	

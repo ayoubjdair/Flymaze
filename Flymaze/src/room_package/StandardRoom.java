@@ -3,6 +3,7 @@ package room_package;
 import java.util.ArrayList;
 
 import enemy_package.Enemy;
+import items_package.Item;
 import items_package.Items;
 
 public class StandardRoom implements Room{
@@ -27,7 +28,7 @@ public class StandardRoom implements Room{
 	}
 	
 	@Override
-	public void removeItem(String itemName) {
+	public Items removeItem(String itemName) {
 		int itemIndex = 0;
 		for (int i = 0; i < itemsInRoom.size(); i++) {
 			if(itemsInRoom.get(i).getName() == itemName) {
@@ -35,7 +36,9 @@ public class StandardRoom implements Room{
 				break;
 			}
 		}
+		Items temp = itemsInRoom.get(itemIndex);
 		itemsInRoom.remove(itemIndex);
+		return temp;
 	}
 		
 	@Override
