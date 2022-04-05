@@ -54,15 +54,10 @@ public class Game {
 	 	
 	 	game.printGuidelines();
 	 	commandInvoker.commandInvoked();
-<<<<<<< HEAD
 		
 		while(!gameOver){
 			game.play(commandInvoker, player, map);
 		}
-	   
-=======
-  
->>>>>>> origin/main
 	}
 	
 	 public static Memento createMemento() {

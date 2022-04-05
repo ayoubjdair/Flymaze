@@ -3,7 +3,10 @@ package game_package;
 import java.util.Scanner;
 
 import command_package.invoker;
+import command_package.moveCommand;
+import command_package.pickUpCommand;
 import command_package.showMapCommand;
+import command_package.usePotionCommand;
 import map_package.Map;
 import player_package.Player;
 
@@ -91,7 +94,6 @@ public class InitGame {
 
         System.out.println("\nChoose difficulty level [Type 1 for EASY or 2 for HARD]");
         int level = sc.nextInt();
-        sc.close();
 
         if (level == 1) {
             map = "EASY MAP";
@@ -109,34 +111,48 @@ public class InitGame {
     public void play(invoker i, Player p, Map map){
         System.out.println("You are in room " + p.getCurrentRoom());
 
+        String command = "MAP";
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Command...");
-        String command = sc.nextLine().toUpperCase();
+
+        command = sc.nextLine().toUpperCase();
 
         switch(command){
             case "HELP":
                 printGuidelines();
                 break;
             case "MOVE NORTH":
-
+                moveCommand moveNCommand = new moveCommand(p, map, command);
+                i.setCommand(moveNCommand);
+                i.commandInvoked();
                 break;
             case "MOVE SOUTH":
-                //
+                moveCommand moveSCommand = new moveCommand(p, map, command);
+                i.setCommand(moveSCommand);
+                i.commandInvoked();
                 break;
             case "MOVE WEST":
-                //
+                moveCommand moveWCommand = new moveCommand(p, map, command);
+                i.setCommand(moveWCommand);
+                i.commandInvoked();
                 break;
             case "MOVE EAST":
-                //
+                moveCommand moveECommand = new moveCommand(p, map, command);
+                i.setCommand(moveECommand);
+                i.commandInvoked();
                 break;
             case "PICKUP":
-                //
+                pickUpCommand pickUpCommand = new pickUpCommand(p, item);
+                i.setCommand(pickUpCommand);
+                i.commandInvoked();
                 break;
             case "ATTACK":
                 //
                 break;
             case "USE":
-                //
+                usePotionCommand useCommand = new usePotionCommand(p, potion);
+                i.setCommand(useCommand);
+                i.commandInvoked();
                 break;
             case "MAP":
                 showMapCommand mapCommand = new showMapCommand(map);
