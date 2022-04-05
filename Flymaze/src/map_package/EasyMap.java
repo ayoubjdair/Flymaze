@@ -76,7 +76,7 @@ public class EasyMap implements Map {
 	public void populateRoomExits() {
 		if (mapNum == 1) {
 			//Standard rooms
-			rooms.get(0).setExits(0, 0, 1, 0);
+			rooms.get(0).setExits(-1, 0, 1, 0);
 			rooms.get(1).setExits(0, 0, 1, 1);
 			rooms.get(2).setExits(1, 0, 0, 1);
 			rooms.get(3).setExits(0, 1, 0, 1);
@@ -106,6 +106,10 @@ public class EasyMap implements Map {
 		}
 	}
 
+	@Override
+	public ArrayList<Room> getRooms() {
+		return this.rooms;
+	}
 
 
 }

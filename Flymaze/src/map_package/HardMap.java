@@ -128,4 +128,9 @@ public class HardMap implements Map{
 		}
 	}
 
+	@Override
+	public ArrayList<Room> getRooms() {
+		return this.rooms;
+	}
+
 }
