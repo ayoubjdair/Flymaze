@@ -16,7 +16,6 @@ public class pickUpCommand implements commandInterface{
 	@Override
 	public void execute() {
 		player.addToInventory(item);
-		
 	}
 	
 }

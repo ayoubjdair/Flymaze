@@ -32,15 +32,13 @@ public class Boss implements Enemy {
         return health;
     }
 
-
     // Setters
     public void setHealth(int health){
         this.health = health;
     }
 
     public void setName(String name) {
-        this.name = name;
-        
+        this.name = name; 
     }
 
     public void setRoomNumber(int room) {

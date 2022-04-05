@@ -1,6 +1,5 @@
 package enemy_package;
 
-// import enemies.enemy;
 // leaf node
 public class Zombie implements Enemy {
     private int roomNumber;

@@ -21,8 +21,6 @@ public interface ItemBuilder {
     public boolean getIsEnchanted();
     public boolean getIsLocked();
 
-    @Override
     public String toString();
-
     public Item getItem();
 }

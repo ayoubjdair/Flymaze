@@ -11,7 +11,6 @@ public class usePotionCommand implements commandInterface{
 	public usePotionCommand(Player p, Item potion) {
 		this.player = p;
 		this.potion = potion;
-		
 	}
 	
 	@Override
@@ -23,9 +22,5 @@ public class usePotionCommand implements commandInterface{
 		}else if(level == 2) {
 			player.setHealth(player.getHealth() + 25);
 		}
-		
 	}
-	
-	
-	
 }

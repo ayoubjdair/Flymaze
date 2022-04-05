@@ -11,39 +11,21 @@ public class AttackContext implements ContextInterface{
 		this.playerObject = p;
 		this.enemyObject = e;
 	}
-	
-	
-	
-//	public String applyDamage() {
-//		//The example is for use with a logger which might be handy
-//		String result = "Player:" + playerObject.getFirstName() + " attacked Enemy:" + enemyObject.getName();
-//		
-//		return result;
-//		
-//	}
-
-
 
 	@Override
 	public Player getPlayerObject() {
 		return this.playerObject;
 	}
 
-
-
 	@Override
 	public Enemy getEnemyObject() {
 		return this.enemyObject;
 	}
 
-
-
 	@Override
 	public void setPlayerObject(Player p) {
 		this.playerObject = p;
 	}
-
-
 
 	@Override
 	public void setEnemyObject(Enemy e) {

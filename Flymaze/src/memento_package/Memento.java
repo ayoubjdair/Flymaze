@@ -11,5 +11,4 @@ public class Memento {
 		this.player = p;
 		this.map = m;
 	}
-
 }

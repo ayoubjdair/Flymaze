@@ -38,7 +38,6 @@ public class Vampire implements Enemy {
 
     public void setName(String name) {
         this.name = name;
-        
     }
 
     public void setRoomNumber(int room) {

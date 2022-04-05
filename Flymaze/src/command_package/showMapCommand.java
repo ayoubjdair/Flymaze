@@ -13,12 +13,5 @@ public class showMapCommand implements commandInterface{
 	@Override
 	public void execute() {
 		System.out.println(map.showMap());
-		
 	}
-
-	
-	
-	
-	
-	
 }

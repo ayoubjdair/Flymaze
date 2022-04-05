@@ -2,8 +2,14 @@ package map_package;
 
 import java.util.ArrayList;
 
+import enemy_package.Boss;
 import enemy_package.Vampire;
 import enemy_package.Zombie;
+import items_package.Item;
+import items_package.ItemBuilder;
+import items_package.ItemConstructor;
+import items_package.PotionBuilder;
+import items_package.SwordBuilder;
 import room_package.Room;
 import room_package.RoomFactory;
 
@@ -13,7 +19,7 @@ public class HardMap implements Map{
 	RoomFactory roomFactory = new RoomFactory();
 	
 	//This decides if it will be map layout 1 or two
-	int mapNum = (int) ((Math.random() * (2 - 1)) + 1);
+	int mapNum = (int) ((Math.random() * (3 - 1)) + 1);
 	String mapString;
 	
 	public HardMap() {
@@ -42,24 +48,37 @@ public class HardMap implements Map{
 			int zombieRoom3 = (int) ((Math.random() * (8 - 6)) + 1);
 			int zombieRoom4 = (int) ((Math.random() * (6 - 1)) + 1);
 			
-			
 			int vampireRoom1 = (int) ((Math.random() * (12 - 1)) + 1);
 			int vampireRoom2 = (int) ((Math.random() * (12 - 1)) + 1);
 			
-			Zombie zombie1 = new Zombie();
-			Zombie zombie2 = new Zombie();
-			Zombie zombie3 = new Zombie();
-			Zombie zombie4 = new Zombie();
-			Vampire vampire1 = new Vampire();
-			Vampire vampire2 = new Vampire();
+			Zombie zombie1 = new Zombie(zombieRoom1);
+			Zombie zombie2 = new Zombie(zombieRoom2);
+			Zombie zombie3 = new Zombie(zombieRoom3);
+			Zombie zombie4 = new Zombie(zombieRoom4);
+			Vampire vampire1 = new Vampire(vampireRoom1);
+			Vampire vampire2 = new Vampire(vampireRoom2);
 			
-			//Need enemy builder in here
 			rooms.get(zombieRoom1).addEnemy(zombie1);
 			rooms.get(zombieRoom2).addEnemy(zombie2);
 			rooms.get(zombieRoom3).addEnemy(zombie3);
 			rooms.get(zombieRoom4).addEnemy(zombie4);
 			rooms.get(vampireRoom1).addEnemy(vampire1);
 			rooms.get(vampireRoom2).addEnemy(vampire2);
+			
+			Boss boss = new Boss(13);
+			rooms.get(13).addEnemy(boss);
+			
+			ItemBuilder swordBuilder = new SwordBuilder();
+	        ItemConstructor builder = new ItemConstructor(swordBuilder);
+			builder.constructItem();
+			Item sword = builder.getItem();
+			rooms.get(4).addItem(sword);
+			
+			ItemBuilder potionBuilder = new PotionBuilder();
+	        ItemConstructor builder2 = new ItemConstructor(potionBuilder);
+	        builder2.constructItem();
+	        Item potion = builder2.getItem();
+	        rooms.get(10).addItem(potion);
 		}
 		
 		else if (mapNum == 2) {
@@ -72,15 +91,37 @@ public class HardMap implements Map{
 			int vampireRoom2 = (int) ((Math.random() * (8- 4)) + 1);
 			int vampireRoom3 = (int) ((Math.random() * (4 - 1)) + 1);
 			
-			//Need enemy builder in here
-			rooms.get(zombieRoom1).addEnemy(null);
-			rooms.get(zombieRoom2).addEnemy(null);
-			rooms.get(zombieRoom3).addEnemy(null);
-			rooms.get(zombieRoom4).addEnemy(null);
-			rooms.get(vampireRoom1).addEnemy(null);
-			rooms.get(vampireRoom2).addEnemy(null);
-			rooms.get(vampireRoom3).addEnemy(null);
+			Zombie zombie1 = new Zombie(zombieRoom1);
+			Zombie zombie2 = new Zombie(zombieRoom2);
+			Zombie zombie3 = new Zombie(zombieRoom3);
+			Zombie zombie4 = new Zombie(zombieRoom4);
+			Vampire vampire1 = new Vampire(vampireRoom1);
+			Vampire vampire2 = new Vampire(vampireRoom2);
+			Vampire vampire3 = new Vampire(vampireRoom2);
 			
+			//Need enemy builder in here
+			rooms.get(zombieRoom1).addEnemy(zombie1);
+			rooms.get(zombieRoom2).addEnemy(zombie2);
+			rooms.get(zombieRoom3).addEnemy(zombie3);
+			rooms.get(zombieRoom4).addEnemy(zombie4);
+			rooms.get(vampireRoom1).addEnemy(vampire1);
+			rooms.get(vampireRoom2).addEnemy(vampire2);
+			rooms.get(vampireRoom3).addEnemy(vampire3);
+			
+			Boss boss = new Boss(15);
+			rooms.get(15).addEnemy(boss);
+			
+			ItemBuilder swordBuilder = new SwordBuilder();
+	        ItemConstructor builder = new ItemConstructor(swordBuilder);
+			builder.constructItem();
+			Item sword = builder.getItem();
+			rooms.get(3).addItem(sword);
+			
+			ItemBuilder potionBuilder = new PotionBuilder();
+	        ItemConstructor builder2 = new ItemConstructor(potionBuilder);
+	        builder2.constructItem();
+	        Item potion = builder2.getItem();
+	        rooms.get(11).addItem(potion);
 		}
 	}
 
@@ -145,5 +186,4 @@ public class HardMap implements Map{
 	public ArrayList<Room> getRooms() {
 		return this.rooms;
 	}
-
 }

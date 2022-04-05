@@ -2,8 +2,14 @@ package map_package;
 
 import java.util.ArrayList;
 
+import enemy_package.Boss;
 import enemy_package.Vampire;
 import enemy_package.Zombie;
+import items_package.Item;
+import items_package.ItemBuilder;
+import items_package.ItemConstructor;
+import items_package.PotionBuilder;
+import items_package.SwordBuilder;
 import room_package.Room;
 import room_package.RoomFactory;
 
@@ -12,7 +18,7 @@ public class EasyMap implements Map {
 	ArrayList<Room> rooms = new ArrayList<Room>();
 	RoomFactory roomFactory = new RoomFactory();
 	//This decides if it will be map layout 1 or two
-	int mapNum = (int) ((Math.random() * (2 - 1)) + 1);
+	int mapNum = (int) ((Math.random() * (3 - 1)) + 1);
 	String mapString;
 	
 	public EasyMap() {
@@ -39,7 +45,6 @@ public class EasyMap implements Map {
 		return mapString;
 	}
 
-
 	public void generateMapString() {
 		if(mapNum == 1) {
 			mapString = "    [B]    \n[6] [7] [8]\n[5] [4] [3]\n[S] [1] [2]";
@@ -48,45 +53,61 @@ public class EasyMap implements Map {
 		}
 	}
 
-
 	public void populateRooms() {
 		if (mapNum == 1) {
 			int zombieRoom = (int) ((Math.random() * (9 - 1)) + 1);
 			int vampireRoom = (int) ((Math.random() * (9 - 1)) + 1);
 			
-			Zombie zombie = new Zombie();
-			Vampire vampire = new Vampire();
+			Zombie zombie = new Zombie(zombieRoom);
+			Vampire vampire = new Vampire(vampireRoom);
 			
-			//Need enemy builder in here
 			rooms.get(zombieRoom).addEnemy(zombie);
 			rooms.get(vampireRoom).addEnemy(vampire);
+			
+			Boss boss = new Boss(9);
+			rooms.get(9).addEnemy(boss);
+			
+			ItemBuilder swordBuilder = new SwordBuilder();
+	        ItemConstructor builder = new ItemConstructor(swordBuilder);
+			builder.constructItem();
+			Item sword = builder.getItem();
+			rooms.get(1).addItem(sword);
+			
+			ItemBuilder potionBuilder = new PotionBuilder();
+	        ItemConstructor builder2 = new ItemConstructor(potionBuilder);
+	        builder2.constructItem();
+	        Item potion = builder2.getItem();
+	        rooms.get(6).addItem(potion);
 		}
-		
 		else if (mapNum == 2) {
-			int zombieRoom1 = (int) ((Math.random() * (9 - 1)) + 1);
-			int zombieRoom2 = (int) ((Math.random() * (9 - 1)) + 1);
-			int zombieRoom3 = (int) ((Math.random() * (9 - 1)) + 1);
-			int vampireRoom1 = (int) ((Math.random() * (9 - 1)) + 1);
-			int vampireRoom2 = (int) ((Math.random() * (9 - 1)) + 1);
+			int zombieRoom1 = (int) ((Math.random() * (7 - 1)) + 1);
+			int zombieRoom2 = (int) ((Math.random() * (7 - 1)) + 1);
+			int vampireRoom1 = (int) ((Math.random() * (7 - 1)) + 1);
 			
-			Zombie zombie1 = new Zombie();
-			Zombie zombie2 = new Zombie();
-			Zombie zombie3 = new Zombie();
-			Vampire vampire1 = new Vampire();
-			Vampire vampire2 = new Vampire();
+			Zombie zombie1 = new Zombie(zombieRoom1);
+			Zombie zombie2 = new Zombie(zombieRoom2);
+			Vampire vampire1 = new Vampire(vampireRoom1);
 			
-			//Need enemy builder in here
 			rooms.get(zombieRoom1).addEnemy(zombie1);
 			rooms.get(zombieRoom2).addEnemy(zombie2);
-			rooms.get(zombieRoom3).addEnemy(zombie3);
 			rooms.get(vampireRoom1).addEnemy(vampire1);
-			rooms.get(vampireRoom2).addEnemy(vampire2);
 			
+			Boss boss = new Boss(7);
+			rooms.get(7).addEnemy(boss);
+			
+			ItemBuilder swordBuilder = new SwordBuilder();
+	        ItemConstructor builder = new ItemConstructor(swordBuilder);
+			builder.constructItem();
+			Item sword = builder.getItem();
+			rooms.get(4).addItem(sword);
+			
+			ItemBuilder potionBuilder = new PotionBuilder();
+	        ItemConstructor builder2 = new ItemConstructor(potionBuilder);
+	        builder2.constructItem();
+	        Item potion = builder2.getItem();
+	        rooms.get(5).addItem(potion);
 		}
-		
-		
 	}
-
 
 	public void populateRoomExits() {
 		if (mapNum == 1) {
@@ -104,7 +125,6 @@ public class EasyMap implements Map {
 			//Boss room
 			rooms.get(9).setExits(-1, 7, -1, -1);
 		}
-		
 		else if (mapNum == 2) {
 			//Standard rooms
 			rooms.get(0).setExits(-1, -1, 1, -1);
@@ -117,7 +137,6 @@ public class EasyMap implements Map {
 			
 			//Boss room
 			rooms.get(9).setExits(-1, -1, -1, 6);
-			
 		}
 	}
 
@@ -125,7 +144,4 @@ public class EasyMap implements Map {
 	public ArrayList<Room> getRooms() {
 		return this.rooms;
 	}
-
-
 }
-

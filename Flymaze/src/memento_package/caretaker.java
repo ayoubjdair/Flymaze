@@ -9,7 +9,6 @@ public class caretaker {
 	
 	ArrayList<Memento> backupHistory = new ArrayList<Memento>();
 	
-
 	void captureMemento() {
 		Memento current = Game.createMemento();
 		backupHistory.add(current);
@@ -20,6 +19,4 @@ public class caretaker {
 			Game.restoreMemento(backupHistory.get(backupHistory.size()-1));
 		}
 	}
-	
-	
 }
