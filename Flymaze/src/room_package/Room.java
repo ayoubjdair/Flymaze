@@ -15,7 +15,13 @@ public interface Room {
 	
 	public void setExits(int north, int south, int east, int west);
 
+	public int getNorth();
 	
+	public int getSouth();
+	
+	public int getEast();
+	
+	public int getWest();
 	
 	
 }

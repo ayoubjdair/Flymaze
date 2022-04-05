@@ -45,6 +45,24 @@ public class BossRoom implements Room{
 		
 	}
 
-	
+	@Override
+	public int getNorth() {
+		return this.n;
+	}
+
+	@Override
+	public int getSouth() {
+		return this.s;
+	}
+
+	@Override
+	public int getEast() {
+		return this.e;
+	}
+
+	@Override
+	public int getWest() {
+		return this.w;
+	}
 
 }
