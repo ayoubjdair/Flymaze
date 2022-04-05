@@ -99,4 +99,9 @@ public class StandardRoom implements Room{
 	public int getID() {
 		return this.id;
 	}
+	
+	@Override
+	public Enemy getEnemy() {
+		return enemiesInRoom.get(enemiesInRoom.size()-1);
+	}
 }

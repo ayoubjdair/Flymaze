@@ -1,5 +1,6 @@
 package game_package;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import command_package.invoker;
@@ -7,6 +8,9 @@ import command_package.moveCommand;
 import command_package.pickUpCommand;
 import command_package.showMapCommand;
 import command_package.usePotionCommand;
+import interceptor_package.AttackContext;
+import interceptor_package.ConcreteAttackInterceptor;
+import interceptor_package.Dispatcher;
 import map_package.Map;
 import player_package.Player;
 
@@ -95,6 +99,10 @@ public class InitGame {
 
     public void play(invoker i, Player p, Map map){
         System.out.println("You are in room " + p.getCurrentRoom());
+        
+        Dispatcher dispatcher = Dispatcher.getInstance();
+		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
+		dispatcher.register(interceptor);
 
         String command = "MAP";
         Scanner sc = new Scanner(System.in);
@@ -139,7 +147,12 @@ public class InitGame {
                 i.commandInvoked();
                 break;
             case "ATTACK":
-                //
+            	AttackContext context = new AttackContext(p, map.getRooms().get(p.getCurrentRoom()).getEnemy());
+			try {
+				dispatcher.dispatchClientRequestInterceptorAttackEnemy(context);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
                 break;
             case "USE":
                 usePotionCommand useCommand = new usePotionCommand(p, p.checkInventory("Potion"));
