@@ -2,6 +2,7 @@ package map_package;
 
 import java.util.ArrayList;
 
+import enemy_package.Boss;
 import enemy_package.Vampire;
 import enemy_package.Zombie;
 import room_package.Room;
@@ -58,6 +59,9 @@ public class HardMap implements Map{
 			rooms.get(zombieRoom4).addEnemy(zombie4);
 			rooms.get(vampireRoom1).addEnemy(vampire1);
 			rooms.get(vampireRoom2).addEnemy(vampire2);
+			
+			Boss boss = new Boss(13);
+			rooms.get(13).addEnemy(boss);
 		}
 		
 		else if (mapNum == 2) {
@@ -86,6 +90,9 @@ public class HardMap implements Map{
 			rooms.get(vampireRoom1).addEnemy(vampire1);
 			rooms.get(vampireRoom2).addEnemy(vampire2);
 			rooms.get(vampireRoom3).addEnemy(vampire3);
+			
+			Boss boss = new Boss(15);
+			rooms.get(15).addEnemy(boss);
 		}
 	}
 

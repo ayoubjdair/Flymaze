@@ -2,6 +2,7 @@ package map_package;
 
 import java.util.ArrayList;
 
+import enemy_package.Boss;
 import enemy_package.Vampire;
 import enemy_package.Zombie;
 import room_package.Room;
@@ -57,6 +58,9 @@ public class EasyMap implements Map {
 			
 			rooms.get(zombieRoom).addEnemy(zombie);
 			rooms.get(vampireRoom).addEnemy(vampire);
+			
+			Boss boss = new Boss(9);
+			rooms.get(9).addEnemy(boss);
 		}
 		else if (mapNum == 2) {
 			int zombieRoom1 = (int) ((Math.random() * (9 - 1)) + 1);
@@ -70,6 +74,9 @@ public class EasyMap implements Map {
 			Zombie zombie3 = new Zombie(zombieRoom3);
 			Vampire vampire1 = new Vampire(vampireRoom1);
 			Vampire vampire2 = new Vampire(vampireRoom2);
+			
+			Boss boss = new Boss(7);
+			rooms.get(7).addEnemy(boss);
 			
 			//Need enemy builder in here
 			rooms.get(zombieRoom1).addEnemy(zombie1);
