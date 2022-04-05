@@ -19,6 +19,19 @@ public class moveCommand implements commandInterface{
 		//Need method for this talk with Ayoub
 		int currentRoom = player.getCurrentRoom();
 		
+		if(direction == "NORTH") {
+			if(map.getRooms().get(currentRoom).getNorth() != -1) {
+				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
+			}
+			
+		}else if(direction == "SOUTH") {
+			
+		}else if(direction == "EAST") {
+			
+		}else if(direction == "WEST") {
+			
+		}
+		
 		
 		
 	}

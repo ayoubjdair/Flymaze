@@ -2,6 +2,7 @@ package game_package;
 
 import java.util.Scanner;
 
+import command_package.invoker;
 import map_package.Map;
 import memento_package.Memento;
 import player_package.Player;
@@ -15,6 +16,7 @@ public class Game {
 	static Player player;
 	//  //Add check to see if player chose easy or hard map then generate
 	static Map map;
+	invoker commandInvoker = new invoker();
 	
 	
 	//Need to create dispatcher object here I think
