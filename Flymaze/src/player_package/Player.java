@@ -19,6 +19,7 @@ public class Player {
     public int health;
     public int stamina;
     public int attackStrength;
+    public int roomNumber;
 
     public ArrayList<Item> inventory;
 
@@ -34,6 +35,7 @@ public class Player {
         this.health = playerBuilder.health;
         this.stamina = playerBuilder.stamina;
         this.attackStrength = playerBuilder.attackStrength;
+        this.roomNumber = playerBuilder.roomNumber;
     }
 
     // Getters
@@ -77,6 +79,10 @@ public class Player {
         return attackStrength;
     }
 
+    public int getCurrentRoom() {
+        return roomNumber;
+    }
+
     public ArrayList<Item> getInventory(){
         return inventory;
     }
@@ -89,13 +95,17 @@ public class Player {
     public void setHealth(int health){
         this.health = health;
     }
-
+    
     public void setStamina(int stamina){
         this.stamina = stamina;
     }
-
+    
     public void setLevel(int level){
         this.level = level;
+    }
+    
+    public void setCurrentRoom(int room) {
+        this.roomNumber = room;
     }
 
     public String toString() {
@@ -120,6 +130,7 @@ public class Player {
         private String favorite_colour;
        
         public int age;
+        public int roomNumber;
         public int level = 1;
         public int health = 100;
         public int stamina = 100;
@@ -150,6 +161,7 @@ public class Player {
             return this;
 		}
 
+
         public PlayerBuilder addEmail_address(String email_address) {
 			if(!email_address.isEmpty()){
                 this.email_address = email_address;
@@ -172,9 +184,17 @@ public class Player {
             return this;
         }
 
+        public PlayerBuilder addRoomNumber(int room) {
+            if(room != 0){
+                this.roomNumber = room;
+            }
+            return this;
+		}
+
         public Player build(){
             Player player = new Player(this);
             return player;
         }
     }
+
 }

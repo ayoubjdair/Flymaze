@@ -16,7 +16,6 @@ public class Zombie implements Enemy {
     }
 
     // Getters
-    @Override
     public Boolean getIsDead() {
         return dead;
     }
@@ -25,19 +24,16 @@ public class Zombie implements Enemy {
         return name;
     }
 
-    @Override
     public int getRoomNumber() {
         return roomNumber;
     }
 
-    @Override
     public int getHealth(){
         return health;
     }
 
-
+    
     // Setters
-    @Override
     public void setHealth(int health){
         this.health = health;
     }
@@ -47,18 +43,15 @@ public class Zombie implements Enemy {
         
     }
 
-    @Override
     public void setRoomNumber(int room) {
         this.roomNumber = room;
     }
 
-    @Override
-    public void setIsDead(Boolean dead) {
+    public void setIsDead(boolean dead) {
         this.dead = dead;
     }
 
 
-    @Override
     public String toString(){
         return "Enemy Name: " + getName() + "\n"+
         "Health  " + getHealth() + "\n" +

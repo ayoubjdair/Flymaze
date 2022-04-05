@@ -36,8 +36,7 @@ public class ItemFactory {
             System.out.println("Error caused by line 36 in class ItemFactory.java");
         }
 
-        // Once created insert it into the HashMap
-        itemCache.put(type, item);
+         itemCache.put(type, item);
     }
     System.out.print("\nCurrent Cache Storage: " + itemCache.size() + " Item(s)\n");
     return item;
