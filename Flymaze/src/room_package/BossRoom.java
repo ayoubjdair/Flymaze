@@ -9,21 +9,31 @@ public class BossRoom implements Room{
 	
 	int id;
 	ArrayList<Items> itemsInRoom = new ArrayList<Items>();
-	//String itemsInRoom[];
 	ArrayList<Enemy> enemiesInRoom = new ArrayList<Enemy>();
-	//Enemy enemiesInRoom[];
 	int n, s, e, w;
 
 	@Override
 	public void removeItem(String itemName) {
-		// TODO Auto-generated method stub
-		
+		int itemIndex = 0;
+		for (int i = 0; i < itemsInRoom.size(); i++) {
+			if(itemsInRoom.get(i).getName() == itemName) {
+				itemIndex = i;
+				break;
+			}
+		}
+		itemsInRoom.remove(itemIndex);
 	}
 
 	@Override
 	public void removeEnemy(String enemyName) {
-		// TODO Auto-generated method stub
-		
+		int enemyIndex = 0;
+		for (int i = 0; i < enemiesInRoom.size(); i++) {
+			if(enemiesInRoom.get(i).getName() == enemyName) {
+				enemyIndex = i;
+				break;
+			}
+		}
+		enemiesInRoom.remove(enemyIndex);
 	}
 
 	@Override
@@ -42,7 +52,6 @@ public class BossRoom implements Room{
 		this.s = south;
 		this.e = east;
 		this.w = west;
-		
 	}
 
 	@Override
@@ -68,12 +77,10 @@ public class BossRoom implements Room{
 	@Override
 	public void setID(int ID) {
 		this.id = ID;
-		
 	}
 
 	@Override
 	public int getID() {
 		return this.id;
 	}
-
 }

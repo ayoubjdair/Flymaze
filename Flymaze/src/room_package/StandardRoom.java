@@ -26,9 +26,6 @@ public class StandardRoom implements Room{
 		this.w = wExit;
 	}
 	
-	//Revisit these to see if an arraylist would be better
-	//Cant remember why I was fixated on an array over arraylist
-	
 	@Override
 	public void removeItem(String itemName) {
 		int itemIndex = 0;
@@ -41,8 +38,6 @@ public class StandardRoom implements Room{
 		itemsInRoom.remove(itemIndex);
 	}
 		
-		
-	
 	@Override
 	public void removeEnemy(String enemyName) {
 		int enemyIndex = 0;
@@ -53,8 +48,6 @@ public class StandardRoom implements Room{
 			}
 		}
 		enemiesInRoom.remove(enemyIndex);
-		
-		
 	}
 	
 	@Override
@@ -73,7 +66,6 @@ public class StandardRoom implements Room{
 		this.s = south;
 		this.e = east;
 		this.w = west;
-		
 	}
 
 	@Override
@@ -99,12 +91,10 @@ public class StandardRoom implements Room{
 	@Override
 	public void setID(int ID) {
 		this.id = ID;
-		
 	}
 
 	@Override
 	public int getID() {
 		return this.id;
 	}
-	
 }
