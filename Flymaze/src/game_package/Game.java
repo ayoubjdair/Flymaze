@@ -10,7 +10,6 @@ import map_package.Map;
 import map_package.MapFactory;
 import memento_package.Memento;
 import player_package.Player;
-import room_package.RoomFactory;
 import testing_package.AutomatedTesting;
 
 public class Game {
@@ -20,18 +19,6 @@ public class Game {
 	static Player player;
 	//  //Add check to see if player chose easy or hard map then generate
 	static Map map;
-	
-	
-	
-	
-	
-	
-	//Need to create dispatcher object here I think
-	//This then keep track of any interceptors that may apply so when the command
-	//Is given to attack the new interceptor is added to the list
-	//Then the dispatcher runs through the list of interceptors and applys them
-	//using the provided context object
-		
 		
 	// }
 
@@ -41,7 +28,7 @@ public class Game {
 		
 		invoker commandInvoker = new invoker();
 		
-		//Instance of dispatcher fetched and registers the concrete attack interceptor
+		//Instance of dispatcher fetched and registers the concrete attack intercepter
 		Dispatcher dispatcher = Dispatcher.getInstance();
 		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
 		dispatcher.register(interceptor);
@@ -62,29 +49,23 @@ public class Game {
 	 	map = mapFactory.getMap(mapLevel);
 	 	map.populateRooms();
 	 	map.populateRoomExits();
+	 	map.generateMapString();
 	 	showMapCommand mapCommand = new showMapCommand(map);
 		commandInvoker.setCommand(mapCommand);
 	 	
 	 	game.printGuidelines();
-//	 	game.printMap(map);
 	 	commandInvoker.commandInvoked();
-
-	//     }
-
-	   
+  
 	}
 	
 	 public static Memento createMemento() {
-			
 	     Memento memento = new Memento(player, map);
 	 	return memento;
 	 }
 	
 	 public static void restoreMemento(Memento m) {
-		
 		 player = m.player;
 	 	 map = m.map;
-		
 	 }
 	
 }
