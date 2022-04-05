@@ -3,9 +3,11 @@ package game_package;
 import java.util.Scanner;
 
 import command_package.invoker;
+import command_package.showMapCommand;
 import interceptor_package.ConcreteAttackInterceptor;
 import interceptor_package.Dispatcher;
 import map_package.Map;
+import map_package.MapFactory;
 import memento_package.Memento;
 import player_package.Player;
 import room_package.RoomFactory;
@@ -18,7 +20,7 @@ public class Game {
 	static Player player;
 	//  //Add check to see if player chose easy or hard map then generate
 	static Map map;
-	invoker commandInvoker = new invoker();
+	
 	
 	
 	
@@ -35,39 +37,55 @@ public class Game {
 
 	public static void main(String[] args){
 		
+		MapFactory mapFactory = new MapFactory();
+		
+		invoker commandInvoker = new invoker();
+		
 		//Instance of dispatcher fetched and registers the concrete attack interceptor
 		Dispatcher dispatcher = Dispatcher.getInstance();
 		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
 		dispatcher.register(interceptor);
+		
+		
 
-		AutomatedTesting tester = new AutomatedTesting();
+		// AutomatedTesting tester = new AutomatedTesting();
 		// tester.testItemBuilder();
 		// tester.testPlayerBuilder();
 		// tester.testComposite();
-		tester.testFlyweight();
+		// tester.testFlyweight();
 
-	// 	InitGame game = new InitGame();
-	// 	game.printWelcomeMessage();
-	// 	player = game.init();
-	// 	String map = game.getMapType();
-	// 	game.printGuidelines();
-	// 	game.printMap(map);
+	 	InitGame game = new InitGame();
+	 	game.printWelcomeMessage();
+	 	player = game.init();
+	 	
+	 	String mapLevel = game.getMapType();
+	 	map = mapFactory.getMap(mapLevel);
+	 	map.populateRooms();
+	 	map.populateRoomExits();
+	 	showMapCommand mapCommand = new showMapCommand(map);
+		commandInvoker.setCommand(mapCommand);
+	 	
+	 	game.printGuidelines();
+//	 	game.printMap(map);
+	 	commandInvoker.commandInvoked();
 
 	//     }
 
-	//    public static Memento createMemento() {
-		
-	//     Memento memento = new Memento(player, map);
-	// 	return memento;
-	//    }
-	
-	//    public static void restoreMemento(Memento m) {
-		
-	// 	   player = m.player;
-	// 	   map = m.map;
-		
-	//    }
+	   
 	}
+	
+	 public static Memento createMemento() {
+			
+	     Memento memento = new Memento(player, map);
+	 	return memento;
+	 }
+	
+	 public static void restoreMemento(Memento m) {
+		
+		 player = m.player;
+	 	 map = m.map;
+		
+	 }
 	
 }
 

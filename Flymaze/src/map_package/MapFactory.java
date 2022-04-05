@@ -9,9 +9,9 @@ public class MapFactory {
 		}
 		
 		//Possibly come back to make this case insensitive
-		if(difficulty == "Easy") {
+		if(difficulty == "EASY MAP") {
 			return new EasyMap();
-		} else if (difficulty == "Hard") {
+		} else if (difficulty == "HARD MAP") {
 			return new HardMap();
 		} else {
 			System.out.print("Invalid input");
