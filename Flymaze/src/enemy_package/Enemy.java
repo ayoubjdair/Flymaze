@@ -6,16 +6,13 @@ package enemy_package;
 // Interface Componenet
 public interface Enemy {
     // Getters
-    // public int getHealth();
-    // public int getRoomNumber();
-    // public Boolean getIsDead();
-    // public String getName();
+    public int getHealth();
+    public int getRoomNumber();
+    public String getName();
 
     // Setters
-    // public void setHealth(int health);
-    // public void setRoomNumber(int room);
+    public void setHealth(int health);
     public void setIsDead(boolean dead);
-    // public void setName(String name);
 
     public String toString();
 }
