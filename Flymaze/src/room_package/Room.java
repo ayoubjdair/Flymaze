@@ -29,5 +29,7 @@ public interface Room {
 	
 	public Enemy getEnemy();
 	
+	public Items getItem();
+	
 	
 }

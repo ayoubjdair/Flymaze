@@ -88,6 +88,21 @@ public class BossRoom implements Room{
 
 	@Override
 	public Enemy getEnemy() {
-		return enemiesInRoom.get(enemiesInRoom.size()-1);
+		if(enemiesInRoom.size() < 0) {
+			return enemiesInRoom.get(enemiesInRoom.size()-1);
+		}else {
+			return null;
+		}
+		
+	}
+	
+	@Override
+	public Items getItem() {
+		if(itemsInRoom.size() < 0) {
+			return itemsInRoom.get(itemsInRoom.size()-1);
+		}else {
+			return null;
+		}
+		
 	}
 }

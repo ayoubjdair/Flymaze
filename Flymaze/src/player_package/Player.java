@@ -21,7 +21,7 @@ public class Player {
     public int attackStrength;
     public int roomNumber;
 
-    public ArrayList<Items> inventory;
+    public ArrayList<Items> inventory = new ArrayList<Items>();
 
     private Player(PlayerBuilder playerBuilder) {
         this.firstName = playerBuilder.firstName;

@@ -35,6 +35,7 @@ public class StandardRoom implements Room{
 				break;
 			}
 		}
+		//Come back to this needs an if statement to make sure its not empty causing an out of bounds error
 		Items temp = itemsInRoom.get(itemIndex);
 		itemsInRoom.remove(itemIndex);
 		return temp;
@@ -102,6 +103,21 @@ public class StandardRoom implements Room{
 	
 	@Override
 	public Enemy getEnemy() {
-		return enemiesInRoom.get(enemiesInRoom.size()-1);
+		if(enemiesInRoom.size() < 0) {
+			return enemiesInRoom.get(enemiesInRoom.size()-1);
+		}else {
+			return null;
+		}
+		
+	}
+	
+	@Override
+	public Items getItem() {
+		if(itemsInRoom.size() < 0) {
+			return itemsInRoom.get(itemsInRoom.size()-1);
+		}else {
+			return null;
+		}
+		
 	}
 }

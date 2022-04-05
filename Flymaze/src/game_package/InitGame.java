@@ -25,7 +25,7 @@ public class InitGame {
     public void printGuidelines(){
         System.out.println("\n Game Instructions");
         System.out.println("\n Type one of the following");
-        System.out.println("GO [NORTH, SOUTH, EAST, WEST] -> To change rooms");
+        System.out.println("MOVE [NORTH, SOUTH, EAST, WEST] -> To change rooms");
         System.out.println("MAP -> Display map");
         System.out.println("PICKUP -> To pickup found item");
         System.out.println("USE -> To use health potion");
@@ -99,6 +99,13 @@ public class InitGame {
 
     public void play(invoker i, Player p, Map map){
         System.out.println("You are in room " + p.getCurrentRoom());
+        
+        if(map.getRooms().get(p.getCurrentRoom()).getEnemy() != null) {
+        	System.out.println("\nAlso in the room is a " + map.getRooms().get(p.getCurrentRoom()).getEnemy().getName());
+        }
+        if(map.getRooms().get(p.getCurrentRoom()).getItem() != null) {
+        	System.out.println("\nYou also notice a " + map.getRooms().get(p.getCurrentRoom()).getItem().getName() + " on the floor");
+        }
         
         Dispatcher dispatcher = Dispatcher.getInstance();
 		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
