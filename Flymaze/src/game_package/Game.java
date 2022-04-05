@@ -8,6 +8,7 @@ import interceptor_package.ConcreteAttackInterceptor;
 import interceptor_package.Dispatcher;
 import map_package.Map;
 import map_package.MapFactory;
+import memento_package.Caretaker;
 import memento_package.Memento;
 import player_package.Player;
 import testing_package.AutomatedTesting;
@@ -33,6 +34,9 @@ public class Game {
 		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
 		dispatcher.register(interceptor);
 		
+		Caretaker caretaker = new Caretaker();
+		caretaker.captureMemento();
+		
 
 		// AutomatedTesting tester = new AutomatedTesting();
 		// tester.testItemBuilder();
@@ -57,7 +61,12 @@ public class Game {
 		
 		while(!gameOver){
 			game.play(commandInvoker, player, map);
+			//If player dies the game is restored to the beginning by Caretaker
+			if(player.getHealth()<0) {
+				caretaker.restoreBackup();
+			}
 		}
+		
 	}
 	
 	 public static Memento createMemento() {
