@@ -14,13 +14,13 @@ public class AttackContext implements ContextInterface{
 	
 	
 	
-	public String applyDamage() {
-		//The example is for use with a logger which might be handy
-		String result = "Player:" + playerObject.getFirstName() + " attacked Enemy:" + enemyObject.getName();
-		
-		return result;
-		
-	}
+//	public String applyDamage() {
+//		//The example is for use with a logger which might be handy
+//		String result = "Player:" + playerObject.getFirstName() + " attacked Enemy:" + enemyObject.getName();
+//		
+//		return result;
+//		
+//	}
 
 
 
