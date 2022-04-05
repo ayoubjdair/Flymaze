@@ -1,12 +1,16 @@
 package game_package;
 
 import java.util.Scanner;
+
+import command_package.invoker;
+import command_package.showMapCommand;
+import map_package.Map;
 import player_package.Player;
 
 public class InitGame {
 
     public void printWelcomeMessage(){
-        System.out.println("\n       Welcome to FlyMaze! ░░░░░░");
+        System.out.println("\n       Welcome to FlyMaze!");
 
         System.out.println("             ▬▬▬.◙.▬▬▬           ");
         System.out.println("              ═▂▄▄▓▄▄▂           ");
@@ -27,11 +31,14 @@ public class InitGame {
     }
 
     public void printGuidelines(){
-        System.out.println("\nPLACEHOLDER Player Instructions");
-    }
-
-    public void printMap(String map){
-        System.out.println("\nPLACEHOLDER Map image of type: " + map);
+        System.out.println("\n Game Instructions");
+        System.out.println("\n Type one of the following");
+        System.out.println("GO [NORTH, SOUTH, EAST, WEST] -> To change rooms");
+        System.out.println("MAP -> Display map");
+        System.out.println("PICKUP -> To pickup found item");
+        System.out.println("USE -> To use health potion");
+        System.out.println("ATTACK -> To attack enemy");
+        System.out.println("HELP -> View these instructions again");
     }
 
     public Player init(){
@@ -97,5 +104,47 @@ public class InitGame {
         System.out.println("Game Difficulty Level: " + map);
 
         return map;
+    }
+
+    public void play(invoker i, Player p, Map map){
+        System.out.println("You are in room " + p.getCurrentRoom());
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Command...");
+        String command = sc.nextLine().toUpperCase();
+
+        switch(command){
+            case "HELP":
+                printGuidelines();
+                break;
+            case "MOVE NORTH":
+
+                break;
+            case "MOVE SOUTH":
+                //
+                break;
+            case "MOVE WEST":
+                //
+                break;
+            case "MOVE EAST":
+                //
+                break;
+            case "PICKUP":
+                //
+                break;
+            case "ATTACK":
+                //
+                break;
+            case "USE":
+                //
+                break;
+            case "MAP":
+                showMapCommand mapCommand = new showMapCommand(map);
+                i.setCommand(mapCommand);
+                i.commandInvoked();
+                break;
+            default:
+                //
+        }
     }
 }

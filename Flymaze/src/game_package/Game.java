@@ -38,14 +38,13 @@ public class Game {
 	public static void main(String[] args){
 		
 		MapFactory mapFactory = new MapFactory();
-		
+		boolean gameOver = false;
 		invoker commandInvoker = new invoker();
 		
 		//Instance of dispatcher fetched and registers the concrete attack interceptor
 		Dispatcher dispatcher = Dispatcher.getInstance();
 		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
 		dispatcher.register(interceptor);
-		
 		
 
 		// AutomatedTesting tester = new AutomatedTesting();
@@ -66,11 +65,11 @@ public class Game {
 		commandInvoker.setCommand(mapCommand);
 	 	
 	 	game.printGuidelines();
-//	 	game.printMap(map);
 	 	commandInvoker.commandInvoked();
-
-	//     }
-
+		
+		while(!gameOver){
+			game.play(commandInvoker, player, map);
+		}
 	   
 	}
 	
