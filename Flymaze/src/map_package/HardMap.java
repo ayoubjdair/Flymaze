@@ -18,14 +18,18 @@ public class HardMap implements Map{
 		if (mapNum == 1) {
 			for (int i = 0; i < 13; i++) {
 				rooms.add(roomFactory.getRoom("STANDARD ROOM"));
+				rooms.get(i).setID(i);
 			}
 			rooms.add(roomFactory.getRoom("BOSS ROOM"));
+			rooms.get(13).setID(13);
 		} 
 		else if(mapNum == 2) {
 			for (int i = 0; i < 15; i++) {
 				rooms.add(roomFactory.getRoom("STANDARD ROOM"));
+				rooms.get(i).setID(i);
 			}
 			rooms.add(roomFactory.getRoom("BOSS ROOM"));
+			rooms.get(15).setID(15);
 		}
 	}
 	
@@ -74,44 +78,44 @@ public class HardMap implements Map{
 	public void populateRoomExits() {
 		if (mapNum == 1) {
 			//Standard rooms
-			rooms.get(0).setExits(0, 0, 1, 0);
-			rooms.get(1).setExits(1, 0, 0, 1);
-			rooms.get(2).setExits(0, 1, 1, 1);
-			rooms.get(3).setExits(1, 0, 1, 0);
-			rooms.get(4).setExits(0, 1, 0, 0);
-			rooms.get(5).setExits(1, 0, 0, 1);
-			rooms.get(6).setExits(1, 1, 1, 0);
-			rooms.get(7).setExits(0, 1, 0, 1);
-			rooms.get(8).setExits(1, 1, 0, 0);
-			rooms.get(9).setExits(1, 0, 0, 1);
-			rooms.get(10).setExits(0, 0, 1, 0);
-			rooms.get(11).setExits(0, 1, 0, 1);
-			rooms.get(12).setExits(0, 0, 1, 1);
+			rooms.get(0).setExits(-1, -1, 1, -1);
+			rooms.get(1).setExits(2, -1, -1, 0);
+			rooms.get(2).setExits(-1, 1, 5, 3);
+			rooms.get(3).setExits(4, -1, 2, -1);
+			rooms.get(4).setExits(-1, 3, -1, -1);
+			rooms.get(5).setExits(6, -1, -1, 2);
+			rooms.get(6).setExits(11, 5, 7, -1);
+			rooms.get(7).setExits(-1, 8, -1, 6);
+			rooms.get(8).setExits(7, 9, -1, -1);
+			rooms.get(9).setExits(8, -1, -1, 10);
+			rooms.get(10).setExits(-1, -1, 9, -1);
+			rooms.get(11).setExits(-1, 6, -1, 12);
+			rooms.get(12).setExits(-1, -1, 11, 13);
 			
 			//Boss room
-			rooms.get(13).setExits(0, 0, 1, 0);
+			rooms.get(13).setExits(-1, -1, 12, -1);
 		}
 		
 		else if (mapNum == 2) {
 			//Standard rooms
-			rooms.get(0).setExits(1, 0, 0, 0);
-			rooms.get(1).setExits(1, 1, 0,0);
-			rooms.get(2).setExits(1, 1, 0, 0);
-			rooms.get(3).setExits(0, 1, 1, 0);
-			rooms.get(4).setExits(0, 0, 1, 1);
-			rooms.get(5).setExits(0, 0, 1, 1);
-			rooms.get(6).setExits(0, 1, 0, 1);
-			rooms.get(7).setExits(1, 0, 0, 1);
-			rooms.get(8).setExits(0, 0, 1, 1);
-			rooms.get(9).setExits(0, 1, 1, 0);
-			rooms.get(10).setExits(1, 0, 1, 0);
-			rooms.get(11).setExits(0, 0, 1, 1);
-			rooms.get(12).setExits(0, 1, 0, 1);
-			rooms.get(13).setExits(1, 0, 0, 1);
-			rooms.get(14).setExits(0, 0, 1, 1);
+			rooms.get(0).setExits(1, -1, -1, -1);
+			rooms.get(1).setExits(2, 0, -1, -1);
+			rooms.get(2).setExits(3, 1, -1, -1);
+			rooms.get(3).setExits(-1, 2, 4, -1);
+			rooms.get(4).setExits(-1, -1, 5, 3);
+			rooms.get(5).setExits(-1, -1, 6, 4);
+			rooms.get(6).setExits(-1, 7, -1, 5);
+			rooms.get(7).setExits(6, -1, -1, 8);
+			rooms.get(8).setExits(-1, -1, 7, 9);
+			rooms.get(9).setExits(-1, 10, 8, -1);
+			rooms.get(10).setExits(9, -1, 11, -1);
+			rooms.get(11).setExits(-1, -1, 12, 10);
+			rooms.get(12).setExits(-1, 13, -1, 11);
+			rooms.get(13).setExits(12, -1, -1, 14);
+			rooms.get(14).setExits(-1, -1, 13, 15);
 			
 			//Boss room
-			rooms.get(15).setExits(0, 0, 1, 0);
+			rooms.get(15).setExits(-1, -1, 14, -1);
 			
 		}
 	}

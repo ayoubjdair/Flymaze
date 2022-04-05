@@ -17,14 +17,18 @@ public class EasyMap implements Map {
 		if (mapNum == 1) {
 			for (int i = 0; i < 9; i++) {
 				rooms.add(roomFactory.getRoom("STANDARD ROOM"));
+				rooms.get(i).setID(i);
 			}
 			rooms.add(roomFactory.getRoom("BOSS ROOM"));
+			rooms.get(9).setID(9);
 		} 
 		else if(mapNum == 2) {
 			for (int i = 0; i < 7; i++) {
 				rooms.add(roomFactory.getRoom("STANDARD ROOM"));
+				rooms.get(i).setID(i);
 			}
 			rooms.add(roomFactory.getRoom("BOSS ROOM"));
+			rooms.get(7).setID(7);
 		}
 	}
 	
@@ -76,32 +80,32 @@ public class EasyMap implements Map {
 	public void populateRoomExits() {
 		if (mapNum == 1) {
 			//Standard rooms
-			rooms.get(0).setExits(-1, 0, 1, 0);
-			rooms.get(1).setExits(0, 0, 1, 1);
-			rooms.get(2).setExits(1, 0, 0, 1);
-			rooms.get(3).setExits(0, 1, 0, 1);
-			rooms.get(4).setExits(0, 0, 1, 1);
-			rooms.get(5).setExits(1, 0, 1, 0);
-			rooms.get(6).setExits(0, 1, 1, 0);
-			rooms.get(7).setExits(1, 0, 1, 1);
-			rooms.get(8).setExits(0, 0, 0, 1);
+			rooms.get(0).setExits(-1, -1, 1, -1);
+			rooms.get(1).setExits(-1, -1, 2, 1);
+			rooms.get(2).setExits(3, -1, -1, 1);
+			rooms.get(3).setExits(-1, 2, -1, 4);
+			rooms.get(4).setExits(-1, -1, 3, 5);
+			rooms.get(5).setExits(6, -1, 4, -1);
+			rooms.get(6).setExits(-1, 5, 7, -1);
+			rooms.get(7).setExits(9, -1, 8, 6);
+			rooms.get(8).setExits(-1, -1, -1, 7);
 			
 			//Boss room
-			rooms.get(9).setExits(0, 1, 0, 0);
+			rooms.get(9).setExits(-1, 7, -1, -1);
 		}
 		
 		else if (mapNum == 2) {
 			//Standard rooms
-			rooms.get(0).setExits(0, 0, 1, 0);
-			rooms.get(1).setExits(0, 0, 1, 1);
-			rooms.get(2).setExits(1, 1, 0, 1);
-			rooms.get(3).setExits(0, 1, 1, 0);
-			rooms.get(4).setExits(0, 0, 0, 1);
-			rooms.get(5).setExits(1, 0, 1, 0);
-			rooms.get(6).setExits(0, 0, 1, 1);
+			rooms.get(0).setExits(-1, -1, 1, -1);
+			rooms.get(1).setExits(-1, -1, 2, 0);
+			rooms.get(2).setExits(3, 5, -1, 1);
+			rooms.get(3).setExits(-1, 2, 4, -1);
+			rooms.get(4).setExits(-1, -1, -1, 3);
+			rooms.get(5).setExits(2, -1, 6, -1);
+			rooms.get(6).setExits(-1, -1, 7, 5);
 			
 			//Boss room
-			rooms.get(9).setExits(0, 0, 0, 1);
+			rooms.get(9).setExits(-1, -1, -1, 6);
 			
 		}
 	}
