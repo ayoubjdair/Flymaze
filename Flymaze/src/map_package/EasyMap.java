@@ -12,7 +12,7 @@ public class EasyMap implements Map {
 	ArrayList<Room> rooms = new ArrayList<Room>();
 	RoomFactory roomFactory = new RoomFactory();
 	//This decides if it will be map layout 1 or two
-	int mapNum = (int) ((Math.random() * (2 - 1)) + 1);
+	int mapNum = (int) ((Math.random() * (3 - 1)) + 1);
 	String mapString;
 	
 	public EasyMap() {
@@ -39,7 +39,6 @@ public class EasyMap implements Map {
 		return mapString;
 	}
 
-
 	public void generateMapString() {
 		if(mapNum == 1) {
 			mapString = "    [B]    \n[6] [7] [8]\n[5] [4] [3]\n[S] [1] [2]";
@@ -47,7 +46,6 @@ public class EasyMap implements Map {
 			mapString = "        [3] [4]    \n[S] [1] [2]        \n        [5] [6] [B]";
 		}
 	}
-
 
 	public void populateRooms() {
 		if (mapNum == 1) {
@@ -57,11 +55,9 @@ public class EasyMap implements Map {
 			Zombie zombie = new Zombie(zombieRoom);
 			Vampire vampire = new Vampire(vampireRoom);
 			
-			//Need enemy builder in here
 			rooms.get(zombieRoom).addEnemy(zombie);
 			rooms.get(vampireRoom).addEnemy(vampire);
 		}
-		
 		else if (mapNum == 2) {
 			int zombieRoom1 = (int) ((Math.random() * (9 - 1)) + 1);
 			int zombieRoom2 = (int) ((Math.random() * (9 - 1)) + 1);
@@ -83,10 +79,7 @@ public class EasyMap implements Map {
 			rooms.get(vampireRoom2).addEnemy(vampire2);
 			
 		}
-		
-		
 	}
-
 
 	public void populateRoomExits() {
 		if (mapNum == 1) {
@@ -104,7 +97,6 @@ public class EasyMap implements Map {
 			//Boss room
 			rooms.get(9).setExits(-1, 7, -1, -1);
 		}
-		
 		else if (mapNum == 2) {
 			//Standard rooms
 			rooms.get(0).setExits(-1, -1, 1, -1);
@@ -117,7 +109,6 @@ public class EasyMap implements Map {
 			
 			//Boss room
 			rooms.get(9).setExits(-1, -1, -1, 6);
-			
 		}
 	}
 
@@ -125,7 +116,4 @@ public class EasyMap implements Map {
 	public ArrayList<Room> getRooms() {
 		return this.rooms;
 	}
-
-
 }
-
