@@ -65,13 +65,13 @@ public class AutomatedTesting implements Testing{
         System.out.print("\n---------- Testing Composite Pattern ----------\n \n");
 
         System.out.println("Creating new Vampire Enemies...");
-        Vampire vampire = new Vampire("Vampire 1", 1, 100, false);
-        Vampire vampire2 = new Vampire("Vampire 2", 2, 100, false);
+        Vampire vampire = new Vampire(1);
+        Vampire vampire2 = new Vampire(2);
         System.out.println("Creating new Vampire Enemies List...");
         Enemies vampires = new Enemies();
         System.out.println("Adding new Vampires to List Enemies List...");
-        vampires.addEnemy(vampire);
-        vampires.addEnemy(vampire2);
+        vampires.addToEnemyList(vampire);
+        vampires.addToEnemyList(vampire2);
         System.out.println(vampires.getHealth());
         System.out.println(vampires.getRoomNumber());
         System.out.println(vampires.toString());
@@ -80,13 +80,13 @@ public class AutomatedTesting implements Testing{
         System.out.println(vampires.toString());
 
         System.out.println("Creating new Zombie Enemies...");
-        Zombie zombie = new Zombie("Zombie 1", 1, 100, false);
-        Zombie zombie2 = new Zombie("Zombie 2", 1, 100, false);
+        Zombie zombie = new Zombie(1);
+        Zombie zombie2 = new Zombie(1);
         System.out.println("Creating new Zombie Enemies List...");
         Enemies zombies = new Enemies();
         System.out.println("Adding new Vampires to List Enemies List...");
-        zombies.addEnemy(zombie);
-        zombies.addEnemy(zombie2);
+        zombies.addToEnemyList(zombie);
+        zombies.addToEnemyList(zombie2);
         System.out.println(zombies.getHealth());
         System.out.println(zombies.getRoomNumber());
         System.out.println(zombies.toString());
