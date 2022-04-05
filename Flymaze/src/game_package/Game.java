@@ -3,6 +3,8 @@ package game_package;
 import java.util.Scanner;
 
 import command_package.invoker;
+import interceptor_package.ConcreteAttackInterceptor;
+import interceptor_package.Dispatcher;
 import map_package.Map;
 import memento_package.Memento;
 import player_package.Player;
@@ -19,6 +21,9 @@ public class Game {
 	invoker commandInvoker = new invoker();
 	
 	
+	
+	
+	
 	//Need to create dispatcher object here I think
 	//This then keep track of any interceptors that may apply so when the command
 	//Is given to attack the new interceptor is added to the list
@@ -29,6 +34,11 @@ public class Game {
 	// }
 
 	public static void main(String[] args){
+		
+		//Instance of dispatcher fetched and registers the concrete attack interceptor
+		Dispatcher dispatcher = Dispatcher.getInstance();
+		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
+		dispatcher.register(interceptor);
 
 		AutomatedTesting tester = new AutomatedTesting();
 		// tester.testItemBuilder();

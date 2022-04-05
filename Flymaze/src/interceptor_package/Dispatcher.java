@@ -33,10 +33,7 @@ public class Dispatcher{
 
     public void dispatchClientRequestInterceptorAttackEnemy(AttackContext context) throws IOException {
         ArrayList<Interceptor> interceptors;
-        synchronized (this)
-        {
-            interceptors = interceptorList;
-        }
+        interceptors = interceptorList;
 
         for(int index = 0; index < interceptors.size(); index++)
         {
