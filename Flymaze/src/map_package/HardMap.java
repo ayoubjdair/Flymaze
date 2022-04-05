@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import enemy_package.Boss;
 import enemy_package.Vampire;
 import enemy_package.Zombie;
+import items_package.Item;
+import items_package.ItemBuilder;
+import items_package.ItemConstructor;
+import items_package.PotionBuilder;
+import items_package.SwordBuilder;
 import room_package.Room;
 import room_package.RoomFactory;
 
@@ -62,6 +67,18 @@ public class HardMap implements Map{
 			
 			Boss boss = new Boss(13);
 			rooms.get(13).addEnemy(boss);
+			
+			ItemBuilder swordBuilder = new SwordBuilder();
+	        ItemConstructor builder = new ItemConstructor(swordBuilder);
+			builder.constructItem();
+			Item sword = builder.getItem();
+			rooms.get(4).addItem(sword);
+			
+			ItemBuilder potionBuilder = new PotionBuilder();
+	        ItemConstructor builder2 = new ItemConstructor(potionBuilder);
+	        builder2.constructItem();
+	        Item potion = builder2.getItem();
+	        rooms.get(10).addItem(potion);
 		}
 		
 		else if (mapNum == 2) {
@@ -93,6 +110,18 @@ public class HardMap implements Map{
 			
 			Boss boss = new Boss(15);
 			rooms.get(15).addEnemy(boss);
+			
+			ItemBuilder swordBuilder = new SwordBuilder();
+	        ItemConstructor builder = new ItemConstructor(swordBuilder);
+			builder.constructItem();
+			Item sword = builder.getItem();
+			rooms.get(3).addItem(sword);
+			
+			ItemBuilder potionBuilder = new PotionBuilder();
+	        ItemConstructor builder2 = new ItemConstructor(potionBuilder);
+	        builder2.constructItem();
+	        Item potion = builder2.getItem();
+	        rooms.get(11).addItem(potion);
 		}
 	}
 
