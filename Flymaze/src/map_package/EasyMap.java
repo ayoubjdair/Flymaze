@@ -136,7 +136,7 @@ public class EasyMap implements Map {
 			rooms.get(6).setExits(-1, -1, 7, 5);
 			
 			//Boss room
-			rooms.get(9).setExits(-1, -1, -1, 6);
+			rooms.get(7).setExits(-1, -1, -1, 6);
 		}
 	}
 
