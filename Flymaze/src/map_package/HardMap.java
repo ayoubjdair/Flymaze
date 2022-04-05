@@ -2,6 +2,8 @@ package map_package;
 
 import java.util.ArrayList;
 
+import enemy_package.Vampire;
+import enemy_package.Zombie;
 import room_package.Room;
 import room_package.RoomFactory;
 
@@ -44,13 +46,20 @@ public class HardMap implements Map{
 			int vampireRoom1 = (int) ((Math.random() * (12 - 1)) + 1);
 			int vampireRoom2 = (int) ((Math.random() * (12 - 1)) + 1);
 			
+			Zombie zombie1 = new Zombie();
+			Zombie zombie2 = new Zombie();
+			Zombie zombie3 = new Zombie();
+			Zombie zombie4 = new Zombie();
+			Vampire vampire1 = new Vampire();
+			Vampire vampire2 = new Vampire();
+			
 			//Need enemy builder in here
-			rooms.get(zombieRoom1).addEnemy(null);
-			rooms.get(zombieRoom2).addEnemy(null);
-			rooms.get(zombieRoom3).addEnemy(null);
-			rooms.get(zombieRoom4).addEnemy(null);
-			rooms.get(vampireRoom1).addEnemy(null);
-			rooms.get(vampireRoom2).addEnemy(null);
+			rooms.get(zombieRoom1).addEnemy(zombie1);
+			rooms.get(zombieRoom2).addEnemy(zombie2);
+			rooms.get(zombieRoom3).addEnemy(zombie3);
+			rooms.get(zombieRoom4).addEnemy(zombie4);
+			rooms.get(vampireRoom1).addEnemy(vampire1);
+			rooms.get(vampireRoom2).addEnemy(vampire2);
 		}
 		
 		else if (mapNum == 2) {
