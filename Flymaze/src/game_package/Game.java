@@ -15,13 +15,8 @@ import testing_package.AutomatedTesting;
 
 public class Game {
 	
-	// RoomFactory roomFactory = new RoomFactory();
-	// //Get Ayoub to have a look at this
 	static Player player;
-	//  //Add check to see if player chose easy or hard map then generate
 	static Map map;
-		
-	// }
 
 	public static void main(String[] args){
 		

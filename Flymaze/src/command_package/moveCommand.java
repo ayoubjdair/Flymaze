@@ -24,15 +24,15 @@ public class moveCommand implements commandInterface{
 			}
 		}else if(direction == "MOVE SOUTH") {
 			if(map.getRooms().get(currentRoom).getSouth() != -1) {
-				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
+				player.setCurrentRoom(map.getRooms().get(currentRoom).getSouth());
 			}
 		}else if(direction == "MOVE EAST") {
 			if(map.getRooms().get(currentRoom).getEast() != -1) {
-				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
+				player.setCurrentRoom(map.getRooms().get(currentRoom).getEast());
 			}
 		}else if(direction == "MOVE WEST") {
 			if(map.getRooms().get(currentRoom).getWest() != -1) {
-				player.setCurrentRoom(map.getRooms().get(currentRoom).getNorth());
+				player.setCurrentRoom(map.getRooms().get(currentRoom).getWest());
 			}
 		}
 	}

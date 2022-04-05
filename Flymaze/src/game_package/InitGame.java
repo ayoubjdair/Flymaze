@@ -101,30 +101,32 @@ public class InitGame {
         System.out.println("Enter Command...");
 
         command = sc.nextLine().toUpperCase();
+//        System.out.println("Command:" + command);
 
         switch(command){
             case "HELP":
                 printGuidelines();
                 break;
             case "MOVE NORTH":
-                moveCommand moveNCommand = new moveCommand(p, map, command);
+                moveCommand moveNCommand = new moveCommand(p, map, "MOVE NORTH");
                 i.setCommand(moveNCommand);
                 i.commandInvoked();
                 break;
             case "MOVE SOUTH":
-                moveCommand moveSCommand = new moveCommand(p, map, command);
+                moveCommand moveSCommand = new moveCommand(p, map, "MOVE SOUTH");
                 i.setCommand(moveSCommand);
                 i.commandInvoked();
                 break;
             case "MOVE WEST":
-                moveCommand moveWCommand = new moveCommand(p, map, command);
+                moveCommand moveWCommand = new moveCommand(p, map, "MOVE WEST");
                 i.setCommand(moveWCommand);
                 i.commandInvoked();
                 break;
             case "MOVE EAST":
-                moveCommand moveECommand = new moveCommand(p, map, command);
+                moveCommand moveECommand = new moveCommand(p, map, "MOVE EAST");
                 i.setCommand(moveECommand);
                 i.commandInvoked();
+                System.out.println("Code reached");
                 break;
             case "PICKUP SWORD":
                 pickUpCommand pickUpCommand = new pickUpCommand(p, map.getRooms().get(p.getCurrentRoom()).removeItem("Sword"));
