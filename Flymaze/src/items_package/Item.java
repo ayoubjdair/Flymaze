@@ -11,7 +11,6 @@ public class Item implements Items{
     public boolean isEnchanted;
     public boolean isLocked;
 
-
     @Override
     public void setName(String name) {
         this.name = name;        
