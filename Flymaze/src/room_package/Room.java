@@ -14,6 +14,8 @@ public interface Room {
 	public void addEnemy(Enemy e);
 	
 	public void setExits(int north, int south, int east, int west);
+	
+	public void setID(int ID);
 
 	public int getNorth();
 	
@@ -22,6 +24,8 @@ public interface Room {
 	public int getEast();
 	
 	public int getWest();
+	
+	public int getID();
 	
 	
 }

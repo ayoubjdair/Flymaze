@@ -64,5 +64,16 @@ public class BossRoom implements Room{
 	public int getWest() {
 		return this.w;
 	}
+	
+	@Override
+	public void setID(int ID) {
+		this.id = ID;
+		
+	}
+
+	@Override
+	public int getID() {
+		return this.id;
+	}
 
 }
