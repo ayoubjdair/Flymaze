@@ -71,7 +71,7 @@ public class Player {
         return health;
     }
 
-    public int getStaminal() {
+    public int getStamina() {
         return stamina;
     }
 

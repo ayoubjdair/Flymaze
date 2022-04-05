@@ -1,6 +1,7 @@
 package game_package;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import command_package.invoker;
@@ -11,6 +12,7 @@ import command_package.usePotionCommand;
 import interceptor_package.AttackContext;
 import interceptor_package.ConcreteAttackInterceptor;
 import interceptor_package.Dispatcher;
+import items_package.Items;
 import map_package.Map;
 import player_package.Player;
 
@@ -23,14 +25,17 @@ public class InitGame {
     }
 
     public void printGuidelines(){
-        System.out.println("\n Game Instructions");
+        System.out.println("\n----------------Game Instructions----------------");
         System.out.println("\n Type one of the following");
         System.out.println("MOVE [NORTH, SOUTH, EAST, WEST] -> To change rooms");
         System.out.println("MAP -> Display map");
-        System.out.println("PICKUP -> To pickup found item");
+        System.out.println("INVENTORY -> Display Inventory");
+        System.out.println("PICKUP SWORD -> To pickup Sword item");
+        System.out.println("PICKUP POTION -> To pickup Potion found item");
         System.out.println("USE -> To use health potion");
         System.out.println("ATTACK -> To attack enemy");
         System.out.println("HELP -> View these instructions again");
+        System.out.println("-------------------------------------------------\n");
     }
 
     public Player init(){
@@ -58,7 +63,7 @@ public class InitGame {
         System.out.println("Whats your favorite colour? (Press enter to skip):");
         String colour = sc.nextLine();
 
-        System.out.println("Enter your age (Press enter to skip):");
+        System.out.println("Enter your age:");
         int age = sc.nextInt();
 
         // sc.close();
@@ -98,7 +103,7 @@ public class InitGame {
     }
 
     public void play(invoker i, Player p, Map map){
-        System.out.println("You are in room " + p.getCurrentRoom());
+        System.out.println("\nYou are in room " + p.getCurrentRoom());
         
         if(map.getRooms().get(p.getCurrentRoom()).getEnemy() != null) {
         	System.out.println("\nAlso in the room is a " + map.getRooms().get(p.getCurrentRoom()).getEnemy().getName());
@@ -111,61 +116,77 @@ public class InitGame {
 		ConcreteAttackInterceptor interceptor = new ConcreteAttackInterceptor();
 		dispatcher.register(interceptor);
 
-        String command = "MAP";
         Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Health: " + p.getHealth());
+        System.out.println("Stamina: " + p.getStamina());
         System.out.println("Enter Command...");
 
-        command = sc.nextLine().toUpperCase();
-//        System.out.println("Command:" + command);
+        String command = sc.nextLine().toUpperCase();
+        //System.out.println("Command:" + command);
 
         switch(command){
             case "HELP":
                 printGuidelines();
                 break;
             case "MOVE NORTH":
-                moveCommand moveNCommand = new moveCommand(p, map, "MOVE NORTH");
+                moveCommand moveNCommand = new moveCommand(p, map, command);
                 i.setCommand(moveNCommand);
                 i.commandInvoked();
+                p.setStamina(p.getStamina()-5);
                 break;
             case "MOVE SOUTH":
-                moveCommand moveSCommand = new moveCommand(p, map, "MOVE SOUTH");
+                moveCommand moveSCommand = new moveCommand(p, map, command);
                 i.setCommand(moveSCommand);
                 i.commandInvoked();
+                p.setStamina(p.getStamina()-5);
                 break;
             case "MOVE WEST":
-                moveCommand moveWCommand = new moveCommand(p, map, "MOVE WEST");
+                moveCommand moveWCommand = new moveCommand(p, map, command);
                 i.setCommand(moveWCommand);
                 i.commandInvoked();
+                p.setStamina(p.getStamina()-5);
                 break;
             case "MOVE EAST":
-                moveCommand moveECommand = new moveCommand(p, map, "MOVE EAST");
+                moveCommand moveECommand = new moveCommand(p, map, command);
                 i.setCommand(moveECommand);
                 i.commandInvoked();
-                System.out.println("Code reached");
+                p.setStamina(p.getStamina()-5);
                 break;
             case "PICKUP SWORD":
                 pickUpCommand pickUpCommand = new pickUpCommand(p, map.getRooms().get(p.getCurrentRoom()).removeItem("Sword"));
                 i.setCommand(pickUpCommand);
                 i.commandInvoked();
+                p.setStamina(p.getStamina()-2);
                 break;
             case "PICKUP POTION":
                 pickUpCommand pickUpCommand2 = new pickUpCommand(p, map.getRooms().get(p.getCurrentRoom()).removeItem("Potion"));
                 i.setCommand(pickUpCommand2);
                 i.commandInvoked();
+                p.setStamina(p.getStamina()-2);
                 break;
             case "ATTACK":
             	AttackContext context = new AttackContext(p, map.getRooms().get(p.getCurrentRoom()).getEnemy());
-			try {
-				dispatcher.dispatchClientRequestInterceptorAttackEnemy(context);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+                p.setStamina(p.getStamina()-5);
+                try {
+                    dispatcher.dispatchClientRequestInterceptorAttackEnemy(context);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "USE":
                 usePotionCommand useCommand = new usePotionCommand(p, p.checkInventory("Potion"));
                 i.setCommand(useCommand);
                 i.commandInvoked();
                 break;
+            case "INVENTORY":
+                ArrayList<Items> Inventory = p.getInventory();
+                System.out.println("\n---Player Inventory---");
+                for(Items item: Inventory){
+                    System.out.println("Item " + item + ": " + i.toString());
+                }
+                System.out.println("\n----------------------");
+            break;
             case "MAP":
                 showMapCommand mapCommand = new showMapCommand(map);
                 i.setCommand(mapCommand);
